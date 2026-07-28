@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无畏契约选手猜一猜</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-top">
+                <h1>🎯 无畏契约选手猜一猜</h1>
+                <button id="settings-btn" class="settings-btn" title="游戏设置" onclick="openSettings()" aria-label="游戏设置">⚙️</button>
+            </div>
+            <div class="subtitle">Valorant Pro Player Guessing Game</div>
+            <div class="game-info">
+                <span id="game-date"></span>
+                <span class="sep">·</span>
+                <span id="guess-count">已猜 0 次</span>
+                <span class="sep">·</span>
+                <span id="remaining-count"></span>
+                <span class="sep">·</span>
+                <span id="player-count">加载中...</span>
+            </div>
+        </header>
+
+        <!-- Search / Guess Input -->
+        <div class="guess-section">
+            <div class="input-wrapper">
+                <input type="text" id="guess-input" placeholder="输入选手 ID 开始猜测..." autocomplete="off" spellcheck="false">
+                <datalist id="player-list"></datalist>
+                <button id="guess-btn" disabled>猜测</button>
+            </div>
+            <div class="input-hints" id="auto-complete"></div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="game-board" id="game-board">
+            <div class="table-header">
+                <div class="col col-id">选手 ID <span class="info-tip" data-tip="选手的游戏ID/昵称">ⓘ</span></div>
+                <div class="col col-age">年龄 <span class="info-tip" data-tip="选手当前年龄（2026年数据）">ⓘ</span></div>
+                <div class="col col-region">赛区 <span class="info-tip" data-tip="按选手战队所属VCT联赛划分：Americas / EMEA / Pacific / China">ⓘ</span></div>
+                <div class="col col-team">战队 <span class="info-tip" data-tip="选手当前效力的职业战队">ⓘ</span></div>
+                <div class="col col-champ">冠军数 <span class="info-tip" data-tip="VCT Masters + Champions 夺冠总次数">ⓘ</span></div>
+                <div class="col col-hero">代表英雄 <span class="info-tip" data-tip="使用场次最多的3个英雄，绿色高亮=匹配目标">ⓘ</span></div>
+            </div>
+            <div id="guess-history">
+                <!-- Guess rows rendered here -->
+            </div>
+        </div>
+
+        <!-- Stats / Hint -->
+        <div class="bottom-bar">
+            <div class="hint-text" id="hint-text">输入选手 ID 并点击猜测，根据颜色提示缩小范围！</div>
+            <div class="share-section" id="share-section" style="display:none">
+                <button id="share-btn" onclick="shareResult()">📋 复制结果</button>
+                <button id="new-game-btn" onclick="location.reload()">🔄 新的一局</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Win Modal -->
+    <div class="modal-overlay" id="win-modal" style="display:none">
+        <div class="modal">
+            <div class="modal-title" id="modal-title">🎉 恭喜猜中！</div>
+            <div class="modal-player" id="modal-player"></div>
+            <div class="modal-stats" id="modal-stats"></div>
+            <div class="modal-result" id="modal-result"></div>
+            <div class="modal-actions">
+                <button onclick="shareResult()">📋 分享结果</button>
+                <button onclick="location.reload()">🔄 再来一局</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settings-modal" style="display:none" onclick="closeSettingsOutside(event)">
+        <div class="modal modal-settings">
+            <div class="settings-header">
+                <h2>⚙️ 游戏设置</h2>
+                <button class="settings-close" onclick="closeSettings()" aria-label="关闭">✕</button>
+            </div>
+
+            <div class="settings-body">
+                <!-- Guess limit config -->
+                <div class="settings-section">
+                    <div class="settings-section-title">🎮 游戏参数</div>
+                    <div class="setting-row">
+                        <label for="max-guesses-slider">
+                            <span>最大猜测次数</span>
+                            <span class="setting-value" id="max-guesses-display">8</span>
+                        </label>
+                        <input type="range" id="max-guesses-slider" min="3" max="20" step="1" value="8"
+                               oninput="onMaxGuessesChange(this.value)">
+                        <div class="range-labels">
+                            <span>3</span>
+                            <span>20</span>
+                        </div>
+                    </div>
+                    <div class="setting-note" id="max-guesses-note">当前设置：共 8 次猜测机会</div>
+                </div>
+
+                <!-- Game rules -->
+                <div class="settings-section">
+                    <div class="settings-section-title">📖 规则说明</div>
+
+                    <details class="rules-details" open>
+                        <summary>🏆 冠军数计算方式</summary>
+                        <div class="rules-content">
+                            <p>统计选手在 <strong>VCT Masters</strong> 和 <strong>Valorant Champions</strong> 两大赛事中夺冠的次数（仅第1名）。</p>
+                            <p><strong>Masters 系列赛：</strong>Reykjavík 2021、Berlin 2021、Reykjavík 2022、Copenhagen 2022、Tokyo 2023、Madrid 2024、Shanghai 2024、Bangkok 2025、Toronto 2025、Santiago 2026、London 2026</p>
+                            <p><strong>Champions 系列赛：</strong>Berlin 2021、Istanbul 2022、Los Angeles 2023、Seoul 2024、Paris 2025、Shanghai 2026</p>
+                            <p class="rules-hint">⬆️ 你的猜测冠军数比目标少 → 目标是冠军数更多的选手<br>⬇️ 你的猜测冠军数比目标多 → 目标是冠军数更少的选手</p>
+                        </div>
+                    </details>
+
+                    <details class="rules-details">
+                        <summary>🌍 赛区划分规则</summary>
+                        <div class="rules-content">
+                            <p>按选手当前战队所属的 VCT 国际联赛划分：</p>
+                            <p><strong>Americas（美洲赛区）</strong> — 北美、拉丁美洲战队，如 Sentinels、LOUD、NRG、Leviatán 等</p>
+                            <p><strong>EMEA（欧洲赛区）</strong> — 欧洲、中东、非洲战队，如 Fnatic、NAVI、Vitality、Team Heretics 等</p>
+                            <p><strong>Pacific（太平洋赛区）</strong> — 亚太地区（不含中国）战队，如 DRX、Gen.G、Paper Rex、ZETA 等</p>
+                            <p><strong>China（中国赛区）</strong> — 中国战队，如 EDG、FPX、Trace Esports、BLG 等</p>
+                        </div>
+                    </details>
+
+                    <details class="rules-details">
+                        <summary>👥 战队信息</summary>
+                        <div class="rules-content">
+                            <p>显示选手当前效力的职业战队名称（中英文对照）。</p>
+                            <p>战队信息基于 VCT 官方登记数据，随转会期更新。</p>
+                            <p class="rules-hint">如果猜测的战队与目标不同，显示为红色 🔴</p>
+                        </div>
+                    </details>
+
+                    <details class="rules-details">
+                        <summary>🎯 代表英雄匹配规则</summary>
+                        <div class="rules-content">
+                            <p>每个选手显示职业生涯中使用场次最多的 <strong>3 个英雄</strong>，按使用率降序排列。</p>
+                            <p><strong>匹配反馈：</strong></p>
+                            <p>🟩 <span class="badge badge-correct" style="display:inline-block;padding:1px 6px;font-size:0.7rem">全部正确</span> — 所有3个英雄都与目标选手匹配</p>
+                            <p>🟨 <span class="badge badge-partial" style="display:inline-block;padding:1px 6px;font-size:0.7rem">匹配 N/3</span> — 部分英雄在目标的Top 3中</p>
+                            <p>⬛ <span class="badge badge-wrong" style="display:inline-block;padding:1px 6px;font-size:0.7rem">无匹配</span> — 没有英雄匹配</p>
+                            <p><strong>图标样式：</strong>绿色边框 = 该英雄匹配；灰色淡化 = 不匹配</p>
+                        </div>
+                    </details>
+
+                    <details class="rules-details">
+                        <summary>📅 年龄数据说明</summary>
+                        <div class="rules-content">
+                            <p>年龄基于选手公开生日信息计算（截至 2026 年）。</p>
+                            <p>部分选手年龄未公开，显示为 "??"。</p>
+                            <p class="rules-hint">⬆️ 你的猜测比目标年轻 → 目标年龄更大<br>⬇️ 你的猜测比目标年长 → 目标年龄更小</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="settings-footer">
+                <button class="settings-done-btn" onclick="closeSettings()">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
