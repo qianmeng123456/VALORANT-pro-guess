@@ -343,8 +343,14 @@ def main():
     players = deduplicate(PLAYERS)
     export_csv(players, csv_path)
     export_json(players, json_path)
+    # Also copy to frontend data directory
+    src_json_path = os.path.join(script_dir, "..", "..", "src", "data", "players.json")
+    with open(json_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    with open(src_json_path, "w", encoding="utf-8") as f:
+        f.write(content)
     print_summary(players)
-    print(f"\n✅ Dataset ready! Copy {json_path} to src/data/ for the frontend.")
+    print(f"\n✅ Dataset ready! Copied to src/data/players.json")
 
 
 if __name__ == "__main__":

@@ -27,7 +27,6 @@ async function loadPlayerData() {
 
     // Update UI
     document.getElementById('player-count').textContent = `${DATA.players.length} 名选手`;
-    enableGuessInput();
     return true;
   } catch (err) {
     DATA.loadError = err.message;
@@ -49,8 +48,27 @@ function findPlayer(name) {
   return DATA.playerMap[name] || null;
 }
 
-function searchPlayers(query) {
+function searchPlayers(query, regionFilter, teamFilter) {
   if (!query || query.length < 1) return [];
   const q = query.toLowerCase();
-  return DATA.allNames.filter(name => name.toLowerCase().includes(q)).slice(0, 8);
+  return DATA.allNames.filter(name => {
+    if (!name.toLowerCase().includes(q)) return false;
+    if (regionFilter || teamFilter) {
+      const player = DATA.playerMap[name];
+      if (!player) return false;
+      if (regionFilter && player.region !== regionFilter) return false;
+      if (teamFilter && player.team !== teamFilter) return false;
+    }
+    return true;
+  }).slice(0, 8);
+}
+
+function getTeamsByRegion(regionFilter) {
+  const teams = new Set();
+  DATA.players.forEach(p => {
+    if (!regionFilter || p.region === regionFilter) {
+      teams.add(p.team);
+    }
+  });
+  return Array.from(teams).sort();
 }

@@ -4,9 +4,18 @@
  */
 
 async function init() {
+  const loadingEl = document.getElementById('loading-overlay');
+  const loadingText = document.querySelector('.loading-text');
+
   // Load player data
   const loaded = await loadPlayerData();
-  if (!loaded) return;
+  if (!loaded) {
+    if (loadingText) loadingText.textContent = '⚠️ 数据加载失败，请刷新页面重试';
+    return;
+  }
+
+  // Hide loading overlay
+  if (loadingEl) loadingEl.classList.add('hidden');
 
   // Initialize game with target player
   const target = initGame();
@@ -39,3 +48,5 @@ window.openSettings = openSettings;
 window.closeSettings = closeSettings;
 window.closeSettingsOutside = closeSettingsOutside;
 window.onMaxGuessesChange = onMaxGuessesChange;
+window.revealAnswer = revealAnswer;
+window.closeWinModalOutside = closeWinModalOutside;
