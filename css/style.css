@@ -70,6 +70,30 @@ header {
   position: relative;
 }
 
+.header-actions {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.header-btn {
+  background: none;
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  transition: background var(--transition);
+  line-height: 1;
+}
+
+.header-btn:hover {
+  background: var(--bg-hover);
+}
+
 header h1 {
   font-size: 1.8rem;
   font-weight: 700;
@@ -85,10 +109,6 @@ header h1 {
 
 /* Settings gear button */
 .settings-btn {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
   background: none;
   border: none;
   font-size: 1.3rem;
@@ -906,6 +926,144 @@ input[type="range"]::-moz-range-thumb {
   background: var(--bg-primary);
   border-radius: var(--radius-sm);
   margin-top: 4px;
+}
+
+/* ===== Feedback Modal ===== */
+.modal-feedback {
+  max-width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  text-align: left;
+  overflow: hidden;
+}
+
+.feedback-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.feedback-field {
+  margin-bottom: 14px;
+}
+
+.feedback-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.feedback-required {
+  color: var(--color-wrong);
+}
+
+.feedback-field input[type="text"],
+.feedback-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition);
+  box-sizing: border-box;
+}
+
+.feedback-field input[type="text"]:focus,
+.feedback-field textarea:focus {
+  border-color: var(--accent-red);
+}
+
+.feedback-field textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.feedback-field input::placeholder,
+.feedback-field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.feedback-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+.feedback-select:focus {
+  border-color: var(--accent-red);
+}
+
+.feedback-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.feedback-suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+  min-height: 0;
+}
+
+.feedback-suggest .auto-item {
+  padding: 4px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.feedback-suggest .auto-item:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--accent-red);
+}
+
+.feedback-cancel-btn {
+  padding: 10px 20px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.feedback-cancel-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-red);
+}
+
+@media (max-width: 640px) {
+  .modal-feedback {
+    max-width: 100%;
+    width: 95%;
+    max-height: 85vh;
+  }
 }
 
 /* ===== Toast Notification ===== */
