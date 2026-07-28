@@ -50,3 +50,7 @@ window.closeSettingsOutside = closeSettingsOutside;
 window.onMaxGuessesChange = onMaxGuessesChange;
 window.revealAnswer = revealAnswer;
 window.closeWinModalOutside = closeWinModalOutside;
+window.openFeedback = openFeedback;
+window.closeFeedback = closeFeedback;
+window.closeFeedbackOutside = closeFeedbackOutside;
+window.submitFeedback = submitFeedback;

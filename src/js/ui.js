@@ -430,12 +430,120 @@ function getMaxGuessesNote(n) {
   return `当前设置：共 ${n} 次猜测机会`;
 }
 
+/* ===== Feedback Functions ===== */
+
+function openFeedback() {
+  const modal = document.getElementById('feedback-modal');
+  modal.style.display = 'flex';
+
+  // Pre-fill player input with target if game is active
+  const playerInput = document.getElementById('feedback-player');
+  if (GAME && GAME.targetPlayer) {
+    playerInput.value = GAME.targetPlayer.name;
+  } else {
+    playerInput.value = '';
+  }
+
+  // Setup auto-complete for player input
+  playerInput.addEventListener('input', function() {
+    const container = document.getElementById('feedback-suggest');
+    const query = this.value.trim();
+    if (!query || query.length < 1) {
+      container.innerHTML = '';
+      return;
+    }
+    const results = searchPlayers(query, '', '');
+    if (results.length === 0) {
+      container.innerHTML = '';
+      return;
+    }
+    container.innerHTML = results.map(name =>
+      `<div class="auto-item" data-name="${name}">${name}</div>`
+    ).join('');
+    container.querySelectorAll('.auto-item').forEach(el => {
+      el.addEventListener('click', function() {
+        document.getElementById('feedback-player').value = this.dataset.name;
+        container.innerHTML = '';
+      });
+    });
+  });
+
+  // Clear other fields
+  document.getElementById('feedback-field').value = '';
+  document.getElementById('feedback-correct').value = '';
+  document.getElementById('feedback-note').value = '';
+}
+
+function closeFeedback() {
+  document.getElementById('feedback-modal').style.display = 'none';
+  document.getElementById('feedback-suggest').innerHTML = '';
+}
+
+function closeFeedbackOutside(event) {
+  if (event.target === event.currentTarget) {
+    closeFeedback();
+  }
+}
+
+function submitFeedback() {
+  const player = document.getElementById('feedback-player').value.trim();
+  const field = document.getElementById('feedback-field').value;
+  const correct = document.getElementById('feedback-correct').value.trim();
+  const note = document.getElementById('feedback-note').value.trim();
+
+  // Validate required fields
+  if (!player) {
+    showToast('⚠️ 请填写选手 ID');
+    document.getElementById('feedback-player').focus();
+    return;
+  }
+  if (!field) {
+    showToast('⚠️ 请选择错误字段');
+    return;
+  }
+  if (!correct) {
+    showToast('⚠️ 请描述正确信息');
+    document.getElementById('feedback-correct').focus();
+    return;
+  }
+
+  // Map field value to Chinese label
+  const fieldLabels = {
+    'age': '年龄',
+    'region': '赛区',
+    'team': '战队',
+    'championships': '冠军数',
+    'agents': '代表英雄',
+    'other': '其他',
+  };
+
+  const title = encodeURIComponent(`[数据反馈] ${player} - ${fieldLabels[field] || field}`);
+  const body = encodeURIComponent(
+    `## 选手信息\n- **选手 ID**：${player}\n- **错误字段**：${fieldLabels[field] || field}\n\n` +
+    `## 正确信息\n${correct}\n\n` +
+    (note ? `## 补充说明\n${note}\n\n` : '') +
+    `---\n*由 VCT 猜选手游戏反馈功能提交*`
+  );
+
+  const url = `https://github.com/qianmeng123456/VALORANT-pro-guess/issues/new?title=${title}&body=${body}`;
+
+  // Open GitHub Issues in new tab
+  window.open(url, '_blank');
+  showToast('✅ 已跳转到 GitHub，请确认提交 Issue');
+  closeFeedback();
+}
+
 // Close settings modal with Escape key
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     const settingsModal = document.getElementById('settings-modal');
     if (settingsModal.style.display === 'flex') {
       closeSettings();
+      return;
+    }
+    const feedbackModal = document.getElementById('feedback-modal');
+    if (feedbackModal.style.display === 'flex') {
+      closeFeedback();
       return;
     }
   }

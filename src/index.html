@@ -13,7 +13,10 @@
         <header>
             <div class="header-top">
                 <h1>🎯 无畏契约选手猜一猜</h1>
-                <button id="settings-btn" class="settings-btn" title="游戏设置" onclick="openSettings()" aria-label="游戏设置">⚙️</button>
+                <div class="header-actions">
+                    <button id="feedback-btn" class="header-btn" title="反馈问题" onclick="openFeedback()" aria-label="反馈问题">📝</button>
+                    <button id="settings-btn" class="settings-btn" title="游戏设置" onclick="openSettings()" aria-label="游戏设置">⚙️</button>
+                </div>
             </div>
             <div class="subtitle">Valorant Pro Player Guessing Game</div>
             <div class="game-info">
@@ -212,6 +215,56 @@
 
             <div class="settings-footer">
                 <button class="settings-done-btn" onclick="closeSettings()">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal-overlay" id="feedback-modal" style="display:none" onclick="closeFeedbackOutside(event)">
+        <div class="modal modal-feedback">
+            <div class="settings-header">
+                <h2>📝 反馈问题</h2>
+                <button class="settings-close" onclick="closeFeedback()" aria-label="关闭">✕</button>
+            </div>
+
+            <div class="settings-body">
+                <p class="feedback-desc">发现选手数据有误？请填写以下信息，提交后将跳转到 GitHub Issues。</p>
+
+                <div class="settings-section">
+                    <div class="feedback-field">
+                        <label for="feedback-player">选手 ID <span class="feedback-required">*</span></label>
+                        <input type="text" id="feedback-player" placeholder="输入选手 ID..." autocomplete="off" spellcheck="false">
+                        <div class="feedback-suggest" id="feedback-suggest"></div>
+                    </div>
+
+                    <div class="feedback-field">
+                        <label for="feedback-field">错误字段 <span class="feedback-required">*</span></label>
+                        <select id="feedback-field" class="feedback-select">
+                            <option value="">请选择...</option>
+                            <option value="age">年龄</option>
+                            <option value="region">赛区</option>
+                            <option value="team">战队</option>
+                            <option value="championships">冠军数</option>
+                            <option value="agents">代表英雄</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+
+                    <div class="feedback-field">
+                        <label for="feedback-correct">正确信息 <span class="feedback-required">*</span></label>
+                        <textarea id="feedback-correct" rows="3" placeholder="请描述正确的信息是什么..."></textarea>
+                    </div>
+
+                    <div class="feedback-field">
+                        <label for="feedback-note">补充说明</label>
+                        <textarea id="feedback-note" rows="3" placeholder="可选：信息来源链接、截图说明或其他备注"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-footer" style="display:flex;gap:8px;justify-content:center">
+                <button class="settings-done-btn" onclick="submitFeedback()">📤 提交反馈</button>
+                <button class="feedback-cancel-btn" onclick="closeFeedback()">取消</button>
             </div>
         </div>
     </div>
