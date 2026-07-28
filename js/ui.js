@@ -48,10 +48,49 @@ function setupUI() {
   // Button click
   btn.addEventListener('click', submitGuess);
 
+  // Reveal answer button
+  document.getElementById('reveal-btn').addEventListener('click', revealAnswer);
+
   // Handle input blur (hide suggestions after click)
   input.addEventListener('blur', function() {
     setTimeout(() => { autoComplete.innerHTML = ''; }, 200);
   });
+
+  // Filter toggle
+  document.getElementById('filter-toggle').addEventListener('click', function() {
+    document.getElementById('filter-bar').classList.toggle('open');
+    // Populate teams when first opened
+    populateTeamFilter('');
+  });
+
+  // Region filter change → update team dropdown
+  document.getElementById('filter-region').addEventListener('change', function() {
+    populateTeamFilter(this.value);
+    // Refresh auto-complete if there's input
+    if (input.value.trim()) updateAutoComplete(input.value);
+  });
+
+  // Team filter change → refresh auto-complete
+  document.getElementById('filter-team').addEventListener('change', function() {
+    if (input.value.trim()) updateAutoComplete(input.value);
+  });
+}
+
+function populateTeamFilter(regionFilter) {
+  const select = document.getElementById('filter-team');
+  const currentVal = select.value;
+  const teams = getTeamsByRegion(regionFilter);
+  select.innerHTML = '<option value="">全部战队</option>';
+  teams.forEach(team => {
+    const opt = document.createElement('option');
+    opt.value = team;
+    opt.textContent = team;
+    select.appendChild(opt);
+  });
+  // Restore previous selection if still valid
+  if (currentVal && teams.includes(currentVal)) {
+    select.value = currentVal;
+  }
 }
 
 function updateAutoComplete(query) {
@@ -61,7 +100,9 @@ function updateAutoComplete(query) {
     return;
   }
 
-  const results = searchPlayers(query);
+  const regionFilter = document.getElementById('filter-region')?.value || '';
+  const teamFilter = document.getElementById('filter-team')?.value || '';
+  const results = searchPlayers(query, regionFilter, teamFilter);
   if (results.length === 0) {
     container.innerHTML = '';
     return;
@@ -117,10 +158,12 @@ function submitGuess() {
     setHint(`🎉 猜对了！共 ${GAME.guesses.length} 次`);
     disableInput(true);
     showWinModal(false);
+    recordWin(GAME.guesses.length);
   } else if (GAME.isOver) {
     setHint(`😔 已达最大猜测次数 (${getMaxGuesses()} 次)，答案是 ${GAME.targetPlayer.name}`);
     disableInput(true);
     showWinModal(true);
+    recordLoss();
   } else {
     const remaining = getMaxGuesses() - GAME.guesses.length;
     const hint = getRandomHint(result);
@@ -187,13 +230,15 @@ function renderAgentField(field, guess) {
   const status = field.status;
   const matches = field.matches || [];
 
-  let html = '';
+  let html = '<div class="agent-icons-row">';
   agents.forEach((agent, i) => {
     const iconPath = getAgentIconPath(agent);
     const cnName = agentsCn[i] || agent;
     const matched = matches[i]?.matched;
-    const matchClass = matched ? ' agent-icon-matched' : (matched === false ? ' agent-icon-unmatched' : '');
-    html += `<img src="${iconPath}" alt="${agent}" title="${agent} / ${cnName}" class="agent-icon${matchClass}" onerror="this.style.display='none'">`;
+    const wrapClass = matched ? 'agent-icon-wrap matched' : (matched === false ? 'agent-icon-wrap unmatched' : 'agent-icon-wrap');
+    const iconClass = matched ? 'agent-icon agent-icon-matched' : (matched === false ? 'agent-icon agent-icon-unmatched' : 'agent-icon');
+    const title = matched ? `${cnName} ✓` : (matched === false ? `${cnName} ✗` : cnName);
+    html += `<div class="${wrapClass}"><img src="${iconPath}" alt="${agent}" title="${title}" class="${iconClass}" onerror="this.parentElement.style.display='none'"></div>`;
   });
 
   // Fill empty slots
@@ -207,6 +252,7 @@ function renderAgentField(field, guess) {
   const label = status === 'correct' ? '全部正确'
     : status === 'partial' ? `匹配 ${field.matchCount}/3` : '无匹配';
   html += `<span class="badge ${badgeClass}" style="margin-left:4px;font-size:0.7rem">${label}</span>`;
+  html += '</div>';
 
   return html;
 }
@@ -227,8 +273,10 @@ function updateGuessCount() {
 function disableInput(disabled) {
   const input = document.getElementById('guess-input');
   const btn = document.getElementById('guess-btn');
+  const revealBtn = document.getElementById('reveal-btn');
   input.disabled = disabled;
   btn.disabled = disabled;
+  if (revealBtn) revealBtn.disabled = disabled;
   input.placeholder = disabled ? '游戏已结束，刷新页面开始新一局' : '输入选手 ID...';
 }
 
@@ -253,6 +301,28 @@ function getRandomHint(result) {
   return '💡 没有一个字段匹配，试试完全不同的选手！';
 }
 
+/* ===== Reveal / Give Up ===== */
+
+function revealAnswer() {
+  if (GAME.isOver) return;
+  if (!confirm('确定要揭晓答案吗？揭晓后本局游戏将结束。')) return;
+
+  GAME.isOver = true;
+  disableInput(true);
+  setHint(`😔 答案是 ${GAME.targetPlayer.name}`);
+  showWinModal(true);
+  recordLoss();
+}
+
+/* ===== Win Modal Outside Close ===== */
+
+function closeWinModalOutside(event) {
+  if (event.target === event.currentTarget) {
+    document.getElementById('win-modal').style.display = 'none';
+    document.getElementById('share-section').style.display = 'flex';
+  }
+}
+
 function showWinModal(revealed) {
   const modal = document.getElementById('win-modal');
   const target = GAME.targetPlayer;
@@ -267,7 +337,6 @@ function showWinModal(revealed) {
     'correct': '🟩', 'partial': '🟨', 'wrong': '⬛',
     'hint-up': '🔺', 'hint-down': '🔻',
   };
-  const fieldLabels = ['ID', '年龄', '赛区', '战队', '冠军', '英雄'];
   const fieldKeys = ['id', 'age', 'region', 'team', 'champ', 'agent'];
 
   let resultHtml = '';
@@ -321,6 +390,13 @@ function openSettings() {
   slider.value = getMaxGuesses();
   display.textContent = getMaxGuesses();
   note.textContent = getMaxGuessesNote(getMaxGuesses());
+
+  // Update stats
+  const stats = loadStats();
+  document.getElementById('stat-games').textContent = stats.gamesPlayed;
+  document.getElementById('stat-winrate').textContent = getWinRate();
+  document.getElementById('stat-streak').textContent = stats.currentStreak;
+  document.getElementById('stat-best').textContent = stats.bestStreak;
 
   modal.style.display = 'flex';
 }

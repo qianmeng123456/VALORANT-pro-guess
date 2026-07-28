@@ -33,12 +33,41 @@
                 <input type="text" id="guess-input" placeholder="输入选手 ID 开始猜测..." autocomplete="off" spellcheck="false">
                 <datalist id="player-list"></datalist>
                 <button id="guess-btn" disabled>猜测</button>
+                <button id="reveal-btn" class="reveal-btn" title="揭晓答案">💡 答案</button>
+            </div>
+            <div class="filter-bar" id="filter-bar">
+                <div class="filter-controls">
+                    <select id="filter-region" class="filter-select" aria-label="按赛区筛选">
+                        <option value="">全部赛区</option>
+                        <option value="China">🇨🇳 中国</option>
+                        <option value="Americas">🇺🇸 美洲</option>
+                        <option value="EMEA">🇪🇺 EMEA</option>
+                        <option value="Pacific">🌏 太平洋</option>
+                    </select>
+                    <select id="filter-team" class="filter-select" aria-label="按战队筛选">
+                        <option value="">全部战队</option>
+                    </select>
+                    <button id="filter-toggle" class="filter-toggle-btn" title="切换筛选面板" aria-label="切换筛选">🔍</button>
+                </div>
             </div>
             <div class="input-hints" id="auto-complete"></div>
+            <div class="shortcut-hints">
+                <span class="shortcut-key">/</span> 聚焦
+                <span class="shortcut-sep">·</span>
+                <span class="shortcut-key">↑↓</span> 选择
+                <span class="shortcut-sep">·</span>
+                <span class="shortcut-key">Enter</span> 提交
+                <span class="shortcut-sep">·</span>
+                <span class="shortcut-key">Esc</span> 清除
+            </div>
         </div>
 
         <!-- Game Board -->
         <div class="game-board" id="game-board">
+            <div id="loading-overlay" class="loading-overlay">
+                <div class="spinner"></div>
+                <p class="loading-text">加载选手数据中...</p>
+            </div>
             <div class="table-header">
                 <div class="col col-id">选手 ID <span class="info-tip" data-tip="选手的游戏ID/昵称">ⓘ</span></div>
                 <div class="col col-age">年龄 <span class="info-tip" data-tip="选手当前年龄（2026年数据）">ⓘ</span></div>
@@ -63,7 +92,7 @@
     </div>
 
     <!-- Win Modal -->
-    <div class="modal-overlay" id="win-modal" style="display:none">
+    <div class="modal-overlay" id="win-modal" style="display:none" onclick="closeWinModalOutside(event)">
         <div class="modal">
             <div class="modal-title" id="modal-title">🎉 恭喜猜中！</div>
             <div class="modal-player" id="modal-player"></div>
@@ -101,6 +130,29 @@
                         </div>
                     </div>
                     <div class="setting-note" id="max-guesses-note">当前设置：共 8 次猜测机会</div>
+                </div>
+
+                <!-- Player Stats -->
+                <div class="settings-section">
+                    <div class="settings-section-title">📊 个人战绩</div>
+                    <div class="stats-grid" id="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-games">0</div>
+                            <div class="stat-label">总场次</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-winrate">0%</div>
+                            <div class="stat-label">胜率</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-streak">0</div>
+                            <div class="stat-label">当前连胜</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="stat-best">0</div>
+                            <div class="stat-label">最佳连胜</div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Game rules -->
@@ -170,6 +222,7 @@
     <script src="js/data.js"></script>
     <script src="js/game.js"></script>
     <script src="js/ui.js"></script>
+    <script src="js/stats.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

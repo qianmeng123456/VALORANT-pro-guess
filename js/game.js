@@ -33,10 +33,10 @@ function initGame() {
   // Daily challenge: use local date so the puzzle matches the user's calendar
   const today = new Date();
   const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const day = String(today.getDate()).padStart(2, '0');
-  const localDateStr = `${year}-${month}-${day}`;
-  const dateSeed = year + (today.getMonth() + 1) + today.getDate();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+  const localDateStr = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  const dateSeed = year + month + day;
   const dailyIdx = dateSeed % DATA.players.length;
   GAME.targetPlayer = DATA.players[dailyIdx];
 
@@ -136,7 +136,7 @@ function compareGuess(guessedName) {
   result.partialCount = partialCount;
 
   // Check if won (all correct)
-  result.isWin = correctCount === 6;
+  result.isWin = correctCount === result.totalFields;
 
   return result;
 }
