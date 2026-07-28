@@ -34,10 +34,6 @@ function initGame() {
   const randomIdx = Math.floor(Math.random() * DATA.players.length);
   GAME.targetPlayer = DATA.players[randomIdx];
 
-  const stats = loadStats();
-  document.getElementById('game-date').textContent =
-    `第 ${stats.gamesPlayed + 1} 局`;
-
   return GAME.targetPlayer;
 }
 
