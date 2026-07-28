@@ -1,0 +1,376 @@
+/**
+ * ui.js - UI rendering and interaction
+ */
+
+const UI = {
+  currentInput: '',
+  selectedSuggestion: -1,
+};
+
+function setupUI() {
+  const input = document.getElementById('guess-input');
+  const btn = document.getElementById('guess-btn');
+  const autoComplete = document.getElementById('auto-complete');
+
+  // Input handler
+  input.addEventListener('input', function(e) {
+    UI.currentInput = this.value;
+    UI.selectedSuggestion = -1;
+    updateAutoComplete(this.value);
+    btn.disabled = this.value.trim().length === 0 || !DATA.loaded;
+  });
+
+  // Keydown for enter and arrow keys
+  input.addEventListener('keydown', function(e) {
+    const suggestions = autoComplete.querySelectorAll('.auto-item');
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (UI.selectedSuggestion >= 0 && suggestions[UI.selectedSuggestion]) {
+        this.value = suggestions[UI.selectedSuggestion].textContent;
+        autoComplete.innerHTML = '';
+        btn.disabled = false;
+      }
+      submitGuess();
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      UI.selectedSuggestion = Math.min(UI.selectedSuggestion + 1, suggestions.length - 1);
+      updateSuggestionHighlight(suggestions);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      UI.selectedSuggestion = Math.max(UI.selectedSuggestion - 1, -1);
+      updateSuggestionHighlight(suggestions);
+    } else if (e.key === 'Escape') {
+      autoComplete.innerHTML = '';
+      UI.selectedSuggestion = -1;
+    }
+  });
+
+  // Button click
+  btn.addEventListener('click', submitGuess);
+
+  // Handle input blur (hide suggestions after click)
+  input.addEventListener('blur', function() {
+    setTimeout(() => { autoComplete.innerHTML = ''; }, 200);
+  });
+}
+
+function updateAutoComplete(query) {
+  const container = document.getElementById('auto-complete');
+  if (!query || query.length < 1) {
+    container.innerHTML = '';
+    return;
+  }
+
+  const results = searchPlayers(query);
+  if (results.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = results.map(name =>
+    `<div class="auto-item" data-name="${name}">${name}</div>`
+  ).join('');
+
+  // Click handler for suggestions
+  container.querySelectorAll('.auto-item').forEach(el => {
+    el.addEventListener('click', function() {
+      document.getElementById('guess-input').value = this.dataset.name;
+      container.innerHTML = '';
+      document.getElementById('guess-btn').disabled = false;
+      document.getElementById('guess-input').focus();
+    });
+  });
+}
+
+function updateSuggestionHighlight(suggestions) {
+  suggestions.forEach((el, i) => {
+    el.style.background = i === UI.selectedSuggestion ? 'var(--bg-hover)' : '';
+    el.style.color = i === UI.selectedSuggestion ? 'var(--text-primary)' : '';
+    el.style.borderColor = i === UI.selectedSuggestion ? 'var(--accent-red)' : '';
+  });
+}
+
+function submitGuess() {
+  const input = document.getElementById('guess-input');
+  const name = input.value.trim();
+
+  if (!name || GAME.isOver || !DATA.loaded) return;
+  if (!findPlayer(name)) {
+    setHint(`❌ 未找到选手 "${name}"，请输入正确的选手 ID`);
+    return;
+  }
+
+  // Check if already guessed
+  if (GAME.guesses.some(g => g.guess.name === name)) {
+    setHint(`⚠️ 已经猜过 "${name}" 了，试试其他选手`);
+    return;
+  }
+
+  const result = compareGuess(name);
+  if (!result) return;
+
+  addGuess(result);
+  renderGuessRow(result);
+  updateGuessCount();
+
+  if (result.isWin) {
+    setHint(`🎉 猜对了！共 ${GAME.guesses.length} 次`);
+    disableInput(true);
+    showWinModal(false);
+  } else if (GAME.isOver) {
+    setHint(`😔 已达最大猜测次数 (${getMaxGuesses()} 次)，答案是 ${GAME.targetPlayer.name}`);
+    disableInput(true);
+    showWinModal(true);
+  } else {
+    const remaining = getMaxGuesses() - GAME.guesses.length;
+    const hint = getRandomHint(result);
+    setHint(`${hint}（剩余 ${remaining} 次）`);
+  }
+
+  input.value = '';
+  input.focus();
+  document.getElementById('auto-complete').innerHTML = '';
+  document.getElementById('guess-btn').disabled = true;
+}
+
+/**
+ * Render a single guess row in the history
+ */
+function renderGuessRow(result) {
+  const container = document.getElementById('guess-history');
+  const f = result.fields;
+  const guess = result.guess;
+
+  const row = document.createElement('div');
+  row.className = 'guess-row';
+
+  // ID
+  const idBadge = feedbackBadge(f.id.status, guess.name);
+  row.innerHTML = `
+    <div class="col col-id">${idBadge}</div>
+    <div class="col col-age">${renderAgeField(f.age)}</div>
+    <div class="col col-region">${feedbackBadge(f.region.status, f.region.value)}</div>
+    <div class="col col-team">${feedbackBadge(f.team.status, f.team.value)}</div>
+    <div class="col col-champ">${renderChampField(f.champ)}</div>
+    <div class="col col-hero">${renderAgentField(f.agent, guess)}</div>
+  `;
+
+  container.insertBefore(row, container.firstChild);
+}
+
+function feedbackBadge(status, text) {
+  const cls = `badge badge-${status}`;
+  return `<span class="${cls}">${text}</span>`;
+}
+
+function renderAgeField(field) {
+  if (field.status === 'hint-up') {
+    return `<span class="badge badge-hint-up">${field.value} 🔺</span>`;
+  } else if (field.status === 'hint-down') {
+    return `<span class="badge badge-hint-down">${field.value} 🔻</span>`;
+  }
+  return feedbackBadge(field.status, field.value);
+}
+
+function renderChampField(field) {
+  if (field.status === 'hint-up') {
+    return `<span class="badge badge-hint-up">${field.value} 🔺</span>`;
+  } else if (field.status === 'hint-down') {
+    return `<span class="badge badge-hint-down">${field.value} 🔻</span>`;
+  }
+  return feedbackBadge(field.status, field.value);
+}
+
+function renderAgentField(field, guess) {
+  const agents = field.value || [];
+  const agentsCn = guess.agents_cn || [];
+  const status = field.status;
+  const matches = field.matches || [];
+
+  let html = '';
+  agents.forEach((agent, i) => {
+    const iconPath = getAgentIconPath(agent);
+    const cnName = agentsCn[i] || agent;
+    const matched = matches[i]?.matched;
+    const matchClass = matched ? ' agent-icon-matched' : (matched === false ? ' agent-icon-unmatched' : '');
+    html += `<img src="${iconPath}" alt="${agent}" title="${agent} / ${cnName}" class="agent-icon${matchClass}" onerror="this.style.display='none'">`;
+  });
+
+  // Fill empty slots
+  for (let i = agents.length; i < 3; i++) {
+    html += `<span class="badge badge-wrong">-</span>`;
+  }
+
+  // Status indicator
+  const badgeClass = status === 'correct' ? 'badge-correct'
+    : status === 'partial' ? 'badge-partial' : 'badge-wrong';
+  const label = status === 'correct' ? '全部正确'
+    : status === 'partial' ? `匹配 ${field.matchCount}/3` : '无匹配';
+  html += `<span class="badge ${badgeClass}" style="margin-left:4px;font-size:0.7rem">${label}</span>`;
+
+  return html;
+}
+
+function updateGuessCount() {
+  const remaining = Math.max(0, getMaxGuesses() - GAME.guesses.length);
+  document.getElementById('guess-count').textContent = `已猜 ${GAME.guesses.length} 次`;
+  const remEl = document.getElementById('remaining-count');
+  if (remaining > 0 && !GAME.isOver) {
+    remEl.textContent = `剩余 ${remaining} 次`;
+  } else if (GAME.isOver) {
+    remEl.textContent = '游戏结束';
+  } else {
+    remEl.textContent = '';
+  }
+}
+
+function disableInput(disabled) {
+  const input = document.getElementById('guess-input');
+  const btn = document.getElementById('guess-btn');
+  input.disabled = disabled;
+  btn.disabled = disabled;
+  input.placeholder = disabled ? '游戏已结束，刷新页面开始新一局' : '输入选手 ID...';
+}
+
+function setHint(text) {
+  document.getElementById('hint-text').textContent = text;
+}
+
+function getRandomHint(result) {
+  const f = result.fields;
+  const hints = [];
+
+  if (f.age.status === 'hint-up') hints.push('目标选手年龄更大');
+  if (f.age.status === 'hint-down') hints.push('目标选手年龄更小');
+  if (f.champ.status === 'hint-up') hints.push('目标选手冠军数更多');
+  if (f.champ.status === 'hint-down') hints.push('目标选手冠军数更少');
+  if (f.agent.status === 'partial') hints.push('代表英雄部分匹配');
+  if (f.region.status === 'wrong') hints.push('赛区不对');
+  if (f.team.status === 'wrong' && result.guess.team) hints.push('战队不对');
+
+  if (hints.length > 0)
+    return '💡 ' + hints.join('，');
+  return '💡 没有一个字段匹配，试试完全不同的选手！';
+}
+
+function showWinModal(revealed) {
+  const modal = document.getElementById('win-modal');
+  const target = GAME.targetPlayer;
+
+  document.getElementById('modal-title').textContent = revealed ? '😔 游戏结束' : '🎉 恭喜猜中！';
+  document.getElementById('modal-player').textContent = target.name;
+  document.getElementById('modal-stats').innerHTML =
+    `${target.team_cn || target.team} · ${REGION_CN[target.region] || target.region} · ${target.age}岁 · ${target.championships}冠`;
+
+  // Generate result grid
+  const emojiMap = {
+    'correct': '🟩', 'partial': '🟨', 'wrong': '⬛',
+    'hint-up': '🔺', 'hint-down': '🔻',
+  };
+  const fieldLabels = ['ID', '年龄', '赛区', '战队', '冠军', '英雄'];
+  const fieldKeys = ['id', 'age', 'region', 'team', 'champ', 'agent'];
+
+  let resultHtml = '';
+  GAME.guesses.forEach(g => {
+    fieldKeys.forEach(key => {
+      const emoji = emojiMap[g.fields[key].status] || '⬜';
+      resultHtml += `<span class="result-block">${emoji}</span>`;
+    });
+    resultHtml += '<br>';
+  });
+
+  document.getElementById('modal-result').innerHTML = resultHtml;
+  modal.style.display = 'flex';
+
+  document.getElementById('share-section').style.display = 'flex';
+}
+
+function shareResult() {
+  const text = generateShareText();
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('📋 已复制到剪贴板！');
+  }).catch(() => {
+    showToast('📋 复制失败，请手动复制');
+  });
+}
+
+function showToast(message) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 2500);
+}
+
+/* ===== Settings Panel ===== */
+
+function openSettings() {
+  const modal = document.getElementById('settings-modal');
+  const slider = document.getElementById('max-guesses-slider');
+  const display = document.getElementById('max-guesses-display');
+  const note = document.getElementById('max-guesses-note');
+
+  slider.value = getMaxGuesses();
+  display.textContent = getMaxGuesses();
+  note.textContent = getMaxGuessesNote(getMaxGuesses());
+
+  modal.style.display = 'flex';
+}
+
+function closeSettings() {
+  document.getElementById('settings-modal').style.display = 'none';
+}
+
+function closeSettingsOutside(event) {
+  if (event.target === event.currentTarget) {
+    closeSettings();
+  }
+}
+
+function onMaxGuessesChange(val) {
+  const num = parseInt(val);
+  document.getElementById('max-guesses-display').textContent = num;
+  document.getElementById('max-guesses-note').textContent = getMaxGuessesNote(num);
+  setMaxGuesses(num);
+  updateGuessCount();
+  // Update hint if game is not over
+  if (!GAME.isOver && GAME.guesses.length > 0) {
+    const remaining = Math.max(0, getMaxGuesses() - GAME.guesses.length);
+    setHint(`⚙️ 已调整最大猜测次数为 ${getMaxGuesses()}，剩余 ${remaining} 次`);
+  }
+}
+
+function getMaxGuessesNote(n) {
+  if (n >= 15) return `当前设置：共 ${n} 次，适合轻松休闲`;
+  if (n <= 5) return `当前设置：共 ${n} 次，挑战模式！`;
+  return `当前设置：共 ${n} 次猜测机会`;
+}
+
+// Close settings modal with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const settingsModal = document.getElementById('settings-modal');
+    if (settingsModal.style.display === 'flex') {
+      closeSettings();
+      return;
+    }
+  }
+
+  // Press "/" or "。" to focus the guess input (only when not in a modal or input)
+  if ((e.key === '/' || e.key === '。') && !GAME.isOver) {
+    const active = document.activeElement;
+    if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
+    const settingsModal = document.getElementById('settings-modal');
+    if (settingsModal.style.display === 'flex') return;
+    e.preventDefault();
+    document.getElementById('guess-input').focus();
+  }
+});

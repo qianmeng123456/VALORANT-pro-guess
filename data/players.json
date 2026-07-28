@@ -1,0 +1,2985 @@
+[
+  {
+    "name": "ZmjjKK",
+    "team": "EDward Gaming",
+    "team_cn": "EDG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 2,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "Smoggy",
+    "team": "EDward Gaming",
+    "team_cn": "EDG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 2,
+    "agents": [
+      "Raze",
+      "KAY/O",
+      "Sova"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "KAY/O",
+      "索瓦"
+    ]
+  },
+  {
+    "name": "nobody",
+    "team": "EDward Gaming",
+    "team_cn": "EDG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 26,
+    "championships": 2,
+    "agents": [
+      "Sova",
+      "Killjoy",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "奇乐",
+      "零"
+    ]
+  },
+  {
+    "name": "CHICHOO",
+    "team": "EDward Gaming",
+    "team_cn": "EDG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 24,
+    "championships": 2,
+    "agents": [
+      "Viper",
+      "Omen",
+      "Astra"
+    ],
+    "agents_cn": [
+      "蝰蛇",
+      "幽影",
+      "星礈"
+    ]
+  },
+  {
+    "name": "S1mon",
+    "team": "EDward Gaming",
+    "team_cn": "EDG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 22,
+    "championships": 1,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Haodong",
+    "team": "EDward Gaming",
+    "team_cn": "EDG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 27,
+    "championships": 1,
+    "agents": [
+      "Killjoy",
+      "Sova",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "索瓦",
+      "零"
+    ]
+  },
+  {
+    "name": "Life",
+    "team": "FunPlus Phoenix",
+    "team_cn": "FPX",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Neon",
+      "Jett"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "霓虹",
+      "捷风"
+    ]
+  },
+  {
+    "name": "whz",
+    "team": "FunPlus Phoenix",
+    "team_cn": "FPX",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Sova"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "索瓦"
+    ]
+  },
+  {
+    "name": "AAAA",
+    "team": "FunPlus Phoenix",
+    "team_cn": "FPX",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Viper",
+      "Omen",
+      "Brimstone"
+    ],
+    "agents_cn": [
+      "蝰蛇",
+      "幽影",
+      "炼狱"
+    ]
+  },
+  {
+    "name": "Starry",
+    "team": "FunPlus Phoenix",
+    "team_cn": "FPX",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Sova",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "索瓦",
+      "零"
+    ]
+  },
+  {
+    "name": "BerLIN",
+    "team": "FunPlus Phoenix",
+    "team_cn": "FPX",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Sage",
+      "Skye",
+      "Killjoy"
+    ],
+    "agents_cn": [
+      "贤者",
+      "斯凯",
+      "奇乐"
+    ]
+  },
+  {
+    "name": "FengFeng",
+    "team": "Trace Esports",
+    "team_cn": "TE",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Bianca",
+    "team": "Trace Esports",
+    "team_cn": "TE",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Yosemite",
+    "team": "Trace Esports",
+    "team_cn": "TE",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "KAY/O",
+      "Fade"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "KAY/O",
+      "黑梦"
+    ]
+  },
+  {
+    "name": "MrCANI",
+    "team": "Trace Esports",
+    "team_cn": "TE",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Sage",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "贤者",
+      "零"
+    ]
+  },
+  {
+    "name": "hfmi0",
+    "team": "Trace Esports",
+    "team_cn": "TE",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Reyna",
+      "Phoenix"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "蕾娜",
+      "凤凰"
+    ]
+  },
+  {
+    "name": "whzy",
+    "team": "Bilibili Gaming",
+    "team_cn": "BLG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "knight",
+    "team": "Bilibili Gaming",
+    "team_cn": "BLG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "YHchen",
+    "team": "Bilibili Gaming",
+    "team_cn": "BLG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "rin",
+    "team": "Bilibili Gaming",
+    "team_cn": "BLG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Sage",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "贤者",
+      "零"
+    ]
+  },
+  {
+    "name": "SScary",
+    "team": "Bilibili Gaming",
+    "team_cn": "BLG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Chamber",
+      "Jett"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "尚勃勒",
+      "捷风"
+    ]
+  },
+  {
+    "name": "Spiritz",
+    "team": "Dragon Ranger Gaming",
+    "team_cn": "DRG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "vo0kashu",
+    "team": "Dragon Ranger Gaming",
+    "team_cn": "DRG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Astra",
+      "Viper"
+    ],
+    "agents_cn": [
+      "幽影",
+      "星礈",
+      "蝰蛇"
+    ]
+  },
+  {
+    "name": "MarT1n",
+    "team": "Dragon Ranger Gaming",
+    "team_cn": "DRG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Nvlgog",
+    "team": "Dragon Ranger Gaming",
+    "team_cn": "DRG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "Skye"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "斯凯"
+    ]
+  },
+  {
+    "name": "Tvirus",
+    "team": "Dragon Ranger Gaming",
+    "team_cn": "DRG",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "Pleets",
+    "team": "Wolves Esports",
+    "team_cn": "Wolves",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Juicy",
+    "team": "Wolves Esports",
+    "team_cn": "Wolves",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "KAY/O",
+      "Fade"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "KAY/O",
+      "黑梦"
+    ]
+  },
+  {
+    "name": "Lf",
+    "team": "Wolves Esports",
+    "team_cn": "Wolves",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Stary",
+    "team": "Wolves Esports",
+    "team_cn": "Wolves",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Sinner",
+    "team": "Wolves Esports",
+    "team_cn": "Wolves",
+    "region": "China",
+    "region_cn": "中国",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "TenZ",
+    "team": "Sentinels",
+    "team_cn": "Sentinels",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 24,
+    "championships": 2,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "zekken",
+    "team": "Sentinels",
+    "team_cn": "Sentinels",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 20,
+    "championships": 1,
+    "agents": [
+      "Raze",
+      "Neon",
+      "Jett"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "霓虹",
+      "捷风"
+    ]
+  },
+  {
+    "name": "johnqt",
+    "team": "Sentinels",
+    "team_cn": "Sentinels",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 23,
+    "championships": 1,
+    "agents": [
+      "Killjoy",
+      "Sova",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "索瓦",
+      "零"
+    ]
+  },
+  {
+    "name": "Sacy",
+    "team": "Sentinels",
+    "team_cn": "Sentinels",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 30,
+    "championships": 1,
+    "agents": [
+      "Sova",
+      "KAY/O",
+      "Skye"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "KAY/O",
+      "斯凯"
+    ]
+  },
+  {
+    "name": "Zellsis",
+    "team": "Sentinels",
+    "team_cn": "Sentinels",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 27,
+    "championships": 1,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Raze"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "雷兹"
+    ]
+  },
+  {
+    "name": "dapr",
+    "team": "Sentinels",
+    "team_cn": "Sentinels",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 28,
+    "championships": 1,
+    "agents": [
+      "Cypher",
+      "Killjoy",
+      "Sova"
+    ],
+    "agents_cn": [
+      "零",
+      "奇乐",
+      "索瓦"
+    ]
+  },
+  {
+    "name": "Ethan",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 26,
+    "championships": 2,
+    "agents": [
+      "KAY/O",
+      "Skye",
+      "Sova"
+    ],
+    "agents_cn": [
+      "KAY/O",
+      "斯凯",
+      "索瓦"
+    ]
+  },
+  {
+    "name": "s0m",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 23,
+    "championships": 1,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "mada",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 1,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "brawk",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 24,
+    "championships": 1,
+    "agents": [
+      "Killjoy",
+      "Sova",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "索瓦",
+      "零"
+    ]
+  },
+  {
+    "name": "skuba",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 23,
+    "championships": 1,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "jawgemo",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 27,
+    "championships": 1,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Boostio",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 27,
+    "championships": 1,
+    "agents": [
+      "Killjoy",
+      "Sova",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "索瓦",
+      "零"
+    ]
+  },
+  {
+    "name": "C0M",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 24,
+    "championships": 1,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Demon1",
+    "team": "NRG Esports",
+    "team_cn": "NRG",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 1,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "aspas",
+    "team": "LOUD",
+    "team_cn": "LOUD",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 1,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Less",
+    "team": "LOUD",
+    "team_cn": "LOUD",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 1,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "Saadhak",
+    "team": "LOUD",
+    "team_cn": "LOUD",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 27,
+    "championships": 1,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "cauanzin",
+    "team": "LOUD",
+    "team_cn": "LOUD",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "tuyz",
+    "team": "LOUD",
+    "team_cn": "LOUD",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "pANcada",
+    "team": "LOUD",
+    "team_cn": "LOUD",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 26,
+    "championships": 1,
+    "agents": [
+      "Viper",
+      "Omen",
+      "Astra"
+    ],
+    "agents_cn": [
+      "蝰蛇",
+      "幽影",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Mazino",
+    "team": "Leviatán",
+    "team_cn": "LEV",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Reyna"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "蕾娜"
+    ]
+  },
+  {
+    "name": "kiNgg",
+    "team": "Leviatán",
+    "team_cn": "LEV",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Melser",
+    "team": "Leviatán",
+    "team_cn": "LEV",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Tacolilla",
+    "team": "Leviatán",
+    "team_cn": "LEV",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "OXY",
+    "team": "Cloud9",
+    "team_cn": "C9",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 21,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "ShoT_UP",
+    "team": "Cloud9",
+    "team_cn": "C9",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Sova",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "索瓦",
+      "零"
+    ]
+  },
+  {
+    "name": "N4RRATE",
+    "team": "Cloud9",
+    "team_cn": "C9",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "verno",
+    "team": "Cloud9",
+    "team_cn": "C9",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "yay",
+    "team": "Cloud9",
+    "team_cn": "C9",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Chamber",
+      "Jett",
+      "Raze"
+    ],
+    "agents_cn": [
+      "尚勃勒",
+      "捷风",
+      "雷兹"
+    ]
+  },
+  {
+    "name": "trent",
+    "team": "G2 Esports",
+    "team_cn": "G2",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "Skye"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "斯凯"
+    ]
+  },
+  {
+    "name": "valyn",
+    "team": "G2 Esports",
+    "team_cn": "G2",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Brimstone",
+      "Viper"
+    ],
+    "agents_cn": [
+      "幽影",
+      "炼狱",
+      "蝰蛇"
+    ]
+  },
+  {
+    "name": "JonahP",
+    "team": "G2 Esports",
+    "team_cn": "G2",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Breach",
+      "KAY/O",
+      "Skye"
+    ],
+    "agents_cn": [
+      "铁壁",
+      "KAY/O",
+      "斯凯"
+    ]
+  },
+  {
+    "name": "icek",
+    "team": "G2 Esports",
+    "team_cn": "G2",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "frz",
+    "team": "MIBR",
+    "team_cn": "MIBR",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "mazin",
+    "team": "MIBR",
+    "team_cn": "MIBR",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Art",
+    "team": "MIBR",
+    "team_cn": "MIBR",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "nox",
+    "team": "MIBR",
+    "team_cn": "MIBR",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Asuna",
+    "team": "100 Thieves",
+    "team_cn": "100T",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Reyna"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "蕾娜"
+    ]
+  },
+  {
+    "name": "Bang",
+    "team": "100 Thieves",
+    "team_cn": "100T",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "KAY/O",
+      "Fade"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "KAY/O",
+      "黑梦"
+    ]
+  },
+  {
+    "name": "Cryocells",
+    "team": "100 Thieves",
+    "team_cn": "100T",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "stellar",
+    "team": "100 Thieves",
+    "team_cn": "100T",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 28,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Breach"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "铁壁"
+    ]
+  },
+  {
+    "name": "Derrek",
+    "team": "100 Thieves",
+    "team_cn": "100T",
+    "region": "Americas",
+    "region_cn": "美洲",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Boaster",
+    "team": "Fnatic",
+    "team_cn": "Fnatic",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 31,
+    "championships": 2,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Derke",
+    "team": "Fnatic",
+    "team_cn": "Fnatic",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 24,
+    "championships": 2,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Alfajer",
+    "team": "Fnatic",
+    "team_cn": "Fnatic",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 20,
+    "championships": 2,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "Leo",
+    "team": "Fnatic",
+    "team_cn": "Fnatic",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 22,
+    "championships": 2,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Chronicle",
+    "team": "Fnatic",
+    "team_cn": "Fnatic",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 26,
+    "championships": 2,
+    "agents": [
+      "Raze",
+      "KAY/O",
+      "Skye"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "KAY/O",
+      "斯凯"
+    ]
+  },
+  {
+    "name": "ANGE1",
+    "team": "NAVI",
+    "team_cn": "NAVI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 38,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Astra",
+      "Viper"
+    ],
+    "agents_cn": [
+      "幽影",
+      "星礈",
+      "蝰蛇"
+    ]
+  },
+  {
+    "name": "Shao",
+    "team": "NAVI",
+    "team_cn": "NAVI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Zyppan",
+    "team": "NAVI",
+    "team_cn": "NAVI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "SUYGETSU",
+    "team": "NAVI",
+    "team_cn": "NAVI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "ardiis",
+    "team": "NAVI",
+    "team_cn": "NAVI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Chamber",
+      "Raze"
+    ],
+    "agents_cn": [
+      "捷风",
+      "尚勃勒",
+      "雷兹"
+    ]
+  },
+  {
+    "name": "Dps",
+    "team": "NAVI",
+    "team_cn": "NAVI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Sage",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "贤者",
+      "零"
+    ]
+  },
+  {
+    "name": "Sayf",
+    "team": "Team Vitality",
+    "team_cn": "VIT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Destrian",
+    "team": "Team Vitality",
+    "team_cn": "VIT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "trexx",
+    "team": "Team Vitality",
+    "team_cn": "VIT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Kicks",
+    "team": "Team Vitality",
+    "team_cn": "VIT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "ScreaM",
+    "team": "Karmine Corp",
+    "team_cn": "KC",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 30,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Reyna"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "蕾娜"
+    ]
+  },
+  {
+    "name": "Enzo",
+    "team": "Karmine Corp",
+    "team_cn": "KC",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "xms",
+    "team": "Karmine Corp",
+    "team_cn": "KC",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 28,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "tomaszy",
+    "team": "Karmine Corp",
+    "team_cn": "KC",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "marteen",
+    "team": "Karmine Corp",
+    "team_cn": "KC",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "cNed",
+    "team": "FUT Esports",
+    "team_cn": "FUT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 25,
+    "championships": 1,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "qRaxs",
+    "team": "FUT Esports",
+    "team_cn": "FUT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Mojj",
+    "team": "FUT Esports",
+    "team_cn": "FUT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Fizzy",
+    "team": "FUT Esports",
+    "team_cn": "FUT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "yetujay",
+    "team": "FUT Esports",
+    "team_cn": "FUT",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "nAts",
+    "team": "Gentle Mates",
+    "team_cn": "M8",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 27,
+    "championships": 1,
+    "agents": [
+      "Viper",
+      "Sova",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "蝰蛇",
+      "索瓦",
+      "零"
+    ]
+  },
+  {
+    "name": "d3ffo",
+    "team": "Gentle Mates",
+    "team_cn": "M8",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 25,
+    "championships": 1,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Redgar",
+    "team": "Gentle Mates",
+    "team_cn": "M8",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 29,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Sova",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "索瓦",
+      "零"
+    ]
+  },
+  {
+    "name": "BONECOLD",
+    "team": "Gentle Mates",
+    "team_cn": "M8",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 28,
+    "championships": 1,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Jamppi",
+    "team": "Team Liquid",
+    "team_cn": "TL",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Keiko",
+    "team": "Team Liquid",
+    "team_cn": "TL",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Mistic",
+    "team": "Team Liquid",
+    "team_cn": "TL",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Kryptix",
+    "team": "Team Liquid",
+    "team_cn": "TL",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Reyna"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "蕾娜"
+    ]
+  },
+  {
+    "name": "fit1nho",
+    "team": "Giants",
+    "team_cn": "Giants",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "rhyme",
+    "team": "Giants",
+    "team_cn": "Giants",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "KAY/O",
+      "Fade"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "KAY/O",
+      "黑梦"
+    ]
+  },
+  {
+    "name": "paz",
+    "team": "Giants",
+    "team_cn": "Giants",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "hitori",
+    "team": "Giants",
+    "team_cn": "Giants",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "nukkye",
+    "team": "Giants",
+    "team_cn": "Giants",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 28,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Reyna"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "蕾娜"
+    ]
+  },
+  {
+    "name": "Sheydos",
+    "team": "KOI",
+    "team_cn": "KOI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "kamo",
+    "team": "KOI",
+    "team_cn": "KOI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "starxo",
+    "team": "KOI",
+    "team_cn": "KOI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "KAY/O",
+      "Fade"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "KAY/O",
+      "黑梦"
+    ]
+  },
+  {
+    "name": "zeek",
+    "team": "KOI",
+    "team_cn": "KOI",
+    "region": "EMEA",
+    "region_cn": "EMEA",
+    "age": 26,
+    "championships": 1,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "f0rsakeN",
+    "team": "Paper Rex",
+    "team_cn": "PRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Jinggg",
+    "team": "Paper Rex",
+    "team_cn": "PRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Neon",
+      "Jett"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "霓虹",
+      "捷风"
+    ]
+  },
+  {
+    "name": "something",
+    "team": "Paper Rex",
+    "team_cn": "PRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "d4v41",
+    "team": "Paper Rex",
+    "team_cn": "PRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "mindfreak",
+    "team": "Paper Rex",
+    "team_cn": "PRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Benkai",
+    "team": "Paper Rex",
+    "team_cn": "PRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 28,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "KAY/O",
+      "Fade"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "KAY/O",
+      "黑梦"
+    ]
+  },
+  {
+    "name": "PatMen",
+    "team": "Paper Rex",
+    "team_cn": "PRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "MaKo",
+    "team": "DRX",
+    "team_cn": "DRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Flashback",
+    "team": "DRX",
+    "team_cn": "DRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "RB",
+    "team": "DRX",
+    "team_cn": "DRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Neon",
+      "Jett"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "霓虹",
+      "捷风"
+    ]
+  },
+  {
+    "name": "BeYN",
+    "team": "DRX",
+    "team_cn": "DRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Foxy9",
+    "team": "DRX",
+    "team_cn": "DRX",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Reyna"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "蕾娜"
+    ]
+  },
+  {
+    "name": "Meteor",
+    "team": "Gen.G",
+    "team_cn": "Gen.G",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 25,
+    "championships": 1,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "t3xture",
+    "team": "Gen.G",
+    "team_cn": "Gen.G",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 1,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Munchkin",
+    "team": "Gen.G",
+    "team_cn": "Gen.G",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 26,
+    "championships": 1,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Karon",
+    "team": "Gen.G",
+    "team_cn": "Gen.G",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 21,
+    "championships": 1,
+    "agents": [
+      "Chamber",
+      "Killjoy",
+      "Cypher"
+    ],
+    "agents_cn": [
+      "尚勃勒",
+      "奇乐",
+      "零"
+    ]
+  },
+  {
+    "name": "yomani",
+    "team": "Gen.G",
+    "team_cn": "Gen.G",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "BuZz",
+    "team": "T1",
+    "team_cn": "T1",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 22,
+    "championships": 1,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "stax",
+    "team": "T1",
+    "team_cn": "T1",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "carpe",
+    "team": "T1",
+    "team_cn": "T1",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "iZu",
+    "team": "T1",
+    "team_cn": "T1",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Neon",
+      "Jett"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "霓虹",
+      "捷风"
+    ]
+  },
+  {
+    "name": "xccurate",
+    "team": "T1",
+    "team_cn": "T1",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 27,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Laz",
+    "team": "ZETA DIVISION",
+    "team_cn": "ZETA",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Dep",
+    "team": "ZETA DIVISION",
+    "team_cn": "ZETA",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Astra",
+      "Viper"
+    ],
+    "agents_cn": [
+      "幽影",
+      "星礈",
+      "蝰蛇"
+    ]
+  },
+  {
+    "name": "barce",
+    "team": "ZETA DIVISION",
+    "team_cn": "ZETA",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "XQQ",
+    "team": "ZETA DIVISION",
+    "team_cn": "ZETA",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Ban",
+    "team": "Nongshim RedForce",
+    "team_cn": "NS",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Sylvan",
+    "team": "Nongshim RedForce",
+    "team_cn": "NS",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Astra",
+      "Viper"
+    ],
+    "agents_cn": [
+      "幽影",
+      "星礈",
+      "蝰蛇"
+    ]
+  },
+  {
+    "name": "Lakia",
+    "team": "Nongshim RedForce",
+    "team_cn": "NS",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 29,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Ezra",
+    "team": "Nongshim RedForce",
+    "team_cn": "NS",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Sylval",
+    "team": "Nongshim RedForce",
+    "team_cn": "NS",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "Lmemore",
+    "team": "Rex Regum Qeon",
+    "team_cn": "RRQ",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Estrella",
+    "team": "Rex Regum Qeon",
+    "team_cn": "RRQ",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "fl1pzjder",
+    "team": "Rex Regum Qeon",
+    "team_cn": "RRQ",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 22,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "KAY/O",
+      "Fade"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "KAY/O",
+      "黑梦"
+    ]
+  },
+  {
+    "name": "Lamonster",
+    "team": "Rex Regum Qeon",
+    "team_cn": "RRQ",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Nexi",
+    "team": "Rex Regum Qeon",
+    "team_cn": "RRQ",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Chamber"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "尚勃勒"
+    ]
+  },
+  {
+    "name": "Suppr",
+    "team": "Global Esports",
+    "team_cn": "GE",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Jett",
+      "Raze",
+      "Neon"
+    ],
+    "agents_cn": [
+      "捷风",
+      "雷兹",
+      "霓虹"
+    ]
+  },
+  {
+    "name": "Bazzi",
+    "team": "Global Esports",
+    "team_cn": "GE",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 26,
+    "championships": 0,
+    "agents": [
+      "Omen",
+      "Viper",
+      "Astra"
+    ],
+    "agents_cn": [
+      "幽影",
+      "蝰蛇",
+      "星礈"
+    ]
+  },
+  {
+    "name": "Lightningfast",
+    "team": "Global Esports",
+    "team_cn": "GE",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 25,
+    "championships": 0,
+    "agents": [
+      "Sova",
+      "Fade",
+      "KAY/O"
+    ],
+    "agents_cn": [
+      "索瓦",
+      "黑梦",
+      "KAY/O"
+    ]
+  },
+  {
+    "name": "WRONSKI",
+    "team": "Global Esports",
+    "team_cn": "GE",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 23,
+    "championships": 0,
+    "agents": [
+      "Killjoy",
+      "Cypher",
+      "Sage"
+    ],
+    "agents_cn": [
+      "奇乐",
+      "零",
+      "贤者"
+    ]
+  },
+  {
+    "name": "Polvi",
+    "team": "Global Esports",
+    "team_cn": "GE",
+    "region": "Pacific",
+    "region_cn": "太平洋",
+    "age": 24,
+    "championships": 0,
+    "agents": [
+      "Raze",
+      "Jett",
+      "Neon"
+    ],
+    "agents_cn": [
+      "雷兹",
+      "捷风",
+      "霓虹"
+    ]
+  }
+]
