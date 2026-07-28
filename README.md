@@ -2,7 +2,15 @@
 
 Valorant Pro Player Guessing Game
 
-受 [guessassin.xyz](https://www.guessassin.xyz/) 和 LoLdle 启发制作的"猜选手"网页游戏。每天一个目标选手，根据多维度反馈提示缩小范围。
+> 🔗 **在线游玩：[qianmeng123456.github.io/VALORANT-pro-guess/](https://qianmeng123456.github.io/VALORANT-pro-guess/)**
+
+受 [guessassin.xyz](https://www.guessassin.xyz/) 和 LoLdle 启发制作的"猜选手"网页游戏。根据多维度反馈提示缩小范围，猜中目标选手！
+
+[![在线游玩](https://img.shields.io/badge/🎮-在线游玩-red?style=for-the-badge)](https://qianmeng123456.github.io/VALORANT-pro-guess/)
+![HTML](https://img.shields.io/badge/HTML-纯前端-orange)
+![CSS](https://img.shields.io/badge/CSS-暗色主题-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
+![数据](https://img.shields.io/badge/选手-157名-green)
 
 ## 游戏玩法
 
@@ -93,18 +101,36 @@ python data/scripts/scrape_vlr.py
 - **数据**：从 Valorant API 获取英雄图标，从 VLR.gg 获取选手数据
 - **设计**：暗色主题，适配桌面端和移动端
 
+## 特性
+
+- 🎲 **随机挑战**：每次刷新都是新的一局
+- 🔍 **多维度反馈**：ID / 年龄 / 赛区 / 战队 / 冠军数 / 代表英雄
+- 📊 **个人战绩**：自动统计胜场、胜率、连胜纪录
+- 🔎 **智能筛选**：按赛区和战队过滤选手，快速定位
+- ⌨️ **键盘快捷键**：`/` 聚焦、`↑↓` 选择、`Enter` 提交
+- 📋 **结果分享**：一键复制 emoji 格子分享到社交平台
+- 🌙 **暗色主题**：护眼设计，适配桌面和移动端
+- 🚀 **纯前端**：无需注册，即开即玩
+
+## 截图
+
+| 游戏界面 | 猜中弹窗 | 战绩统计 |
+|---------|---------|---------|
+| ![游戏界面](https://via.placeholder.com/300x400/1a1a2e/e0e0e0?text=游戏界面) | ![猜中弹窗](https://via.placeholder.com/300x400/1a1a2e/e0e0e0?text=🎉+恭喜猜中) | ![战绩统计](https://via.placeholder.com/300x400/1a1a2e/e0e0e0?text=📊+个人战绩) |
+
+> 💡 截图待补充——欢迎贡献截图替换占位图！
+
 ## 开发计划
 
 - [x] 选手数据库（157 名主流选手）
 - [x] 核心游戏逻辑（6 字段比较反馈）
 - [x] 暗色主题 UI（自适应布局）
 - [x] 英雄头像（27 个英雄齐全）
-- [x] 每日挑战（日期种子）
-- [x] 自动补全输入
-- [x] 分享结果（Wordle 风格 emoji 格子）
+- [x] 自动补全输入 + 筛选过滤
+- [x] 战绩统计（胜率、连胜、场次）
+- [x] 键盘快捷键与用户体验优化
+- [x] 结果分享（Wordle 风格 emoji 格子）
 - [ ] 更多选手数据
-- [ ] 统计追踪
-- [ ] PvP 对战模式
 
 ---
 
