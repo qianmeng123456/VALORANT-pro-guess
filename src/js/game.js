@@ -30,18 +30,12 @@ function initGame() {
   GAME.guesses = [];
   GAME.isOver = false;
 
-  // Daily challenge: use local date so the puzzle matches the user's calendar
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
-  const localDateStr = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-  const dateSeed = year + month + day;
-  const dailyIdx = dateSeed % DATA.players.length;
-  GAME.targetPlayer = DATA.players[dailyIdx];
+  // Random challenge: pick a random player for each session
+  const randomIdx = Math.floor(Math.random() * DATA.players.length);
+  GAME.targetPlayer = DATA.players[randomIdx];
 
   document.getElementById('game-date').textContent =
-    `第 ${localDateStr.replace(/-/g, '')} 题`;
+    `第 ${DATA.allNames.indexOf(GAME.targetPlayer.name) + 1}/${DATA.players.length} 号 · 随机一局`;
 
   return GAME.targetPlayer;
 }
