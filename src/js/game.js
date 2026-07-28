@@ -34,8 +34,9 @@ function initGame() {
   const randomIdx = Math.floor(Math.random() * DATA.players.length);
   GAME.targetPlayer = DATA.players[randomIdx];
 
+  const stats = loadStats();
   document.getElementById('game-date').textContent =
-    `第 ${DATA.allNames.indexOf(GAME.targetPlayer.name) + 1}/${DATA.players.length} 号 · 随机一局`;
+    `第 ${stats.gamesPlayed + 1} 局`;
 
   return GAME.targetPlayer;
 }
