@@ -160,7 +160,8 @@ function submitGuess() {
     showWinModal(false);
     recordWin(GAME.guesses.length);
   } else if (GAME.isOver) {
-    setHint(`😔 已达最大猜测次数 (${getMaxGuesses()} 次)，答案是 ${GAME.targetPlayer.name}`);
+    const t = GAME.targetPlayer;
+    setHint(`😔 已达最大猜测次数 (${getMaxGuesses()} 次)，答案是 ${t.name}（${t.team_cn || t.team} · ${t.age}岁 · ${t.championships}冠）`);
     disableInput(true);
     showWinModal(true);
     recordLoss();
@@ -357,7 +358,8 @@ function revealAnswer() {
 
   GAME.isOver = true;
   disableInput(true);
-  setHint(`😔 答案是 ${GAME.targetPlayer.name}`);
+  const t = GAME.targetPlayer;
+  setHint(`😔 答案是 ${t.name}（${t.team_cn || t.team} · ${t.age}岁 · ${t.championships}冠）`);
   showWinModal(true);
   recordLoss();
 }
@@ -379,6 +381,52 @@ function showWinModal(revealed) {
   document.getElementById('modal-player').textContent = target.name;
   document.getElementById('modal-stats').innerHTML =
     `${target.team_cn || target.team} · ${REGION_CN[target.region] || target.region} · ${target.age}岁 · ${target.championships}冠`;
+
+  // Full answer detail with all fields
+  const nat = target.nationality_cn || target.nationality || '未知';
+  const debut = target.debut_year || '未知';
+  const allTeams = [target.team];
+  if (target.previous_teams) allTeams.push(...target.previous_teams);
+  const allRegions = [target.region];
+  if (target.previous_regions) allRegions.push(...target.previous_regions);
+  const teamCnMap = {};
+  teamCnMap[target.team] = target.team_cn || target.team;
+  (target.previous_teams_cn || []).forEach((cn, i) => {
+    teamCnMap[target.previous_teams[i]] = cn;
+  });
+
+  document.getElementById('modal-answer-detail').innerHTML = `
+    <div class="answer-grid">
+      <div class="answer-item">
+        <span class="answer-label">国籍</span>
+        <span class="answer-value">${nat}</span>
+      </div>
+      <div class="answer-item">
+        <span class="answer-label">出道年</span>
+        <span class="answer-value">${debut}</span>
+      </div>
+      <div class="answer-item">
+        <span class="answer-label">年龄</span>
+        <span class="answer-value">${target.age || '??'}岁</span>
+      </div>
+      <div class="answer-item">
+        <span class="answer-label">冠军数</span>
+        <span class="answer-value">${target.championships || 0}冠</span>
+      </div>
+      <div class="answer-item">
+        <span class="answer-label">所有赛区</span>
+        <span class="answer-value">${allRegions.map(r => REGION_CN[r] || r).join(' → ')}</span>
+      </div>
+      <div class="answer-item answer-item-full">
+        <span class="answer-label">所有战队</span>
+        <span class="answer-value">${allTeams.map(t => teamCnMap[t] || t).join(' → ')}</span>
+      </div>
+      <div class="answer-item answer-item-full">
+        <span class="answer-label">代表英雄</span>
+        <span class="answer-value">${(target.agents_cn || target.agents || []).join(' · ')}</span>
+      </div>
+    </div>
+  `;
 
   // Generate result grid
   const emojiMap = {
