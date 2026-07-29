@@ -14,7 +14,7 @@
             <div class="header-top">
                 <h1>🎯 无畏契约选手猜一猜</h1>
                 <div class="header-actions">
-                    <button id="feedback-btn" class="header-btn" title="反馈问题" onclick="openFeedback()" aria-label="反馈问题">📝</button>
+                    <button id="feedback-btn" class="feedback-header-btn" title="反馈问题" onclick="openFeedback()" aria-label="反馈问题">📝 反馈</button>
                     <button id="settings-btn" class="settings-btn" title="游戏设置" onclick="openSettings()" aria-label="游戏设置">⚙️</button>
                 </div>
             </div>
@@ -31,7 +31,7 @@
         <!-- Search / Guess Input -->
         <div class="guess-section">
             <div class="input-wrapper">
-                <input type="text" id="guess-input" placeholder="输入选手 ID 开始猜测..." autocomplete="off" spellcheck="false">
+                <input type="text" id="guess-input" placeholder="输入选手 ID... 如 ZmjjKK、f0rsakeN、TenZ" autocomplete="off" spellcheck="false">
                 <datalist id="player-list"></datalist>
                 <button id="guess-btn" disabled>猜测</button>
             </div>
