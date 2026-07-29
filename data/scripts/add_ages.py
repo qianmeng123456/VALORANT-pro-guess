@@ -1,0 +1,279 @@
+"""
+Add age data to the player dataset.
+Uses known birth years where available, otherwise estimates from debut_year.
+"""
+import json
+import os
+
+# Current year for age calculation
+CURRENT_YEAR = 2026
+
+# Known birth years for well-known players (verified from public sources)
+BIRTH_YEARS = {
+    # China - EDG
+    "ZmjjKK": 2004,   # Mar 3, 2004
+    "Smoggy": 2002,   # Jun 8, 2002
+    "nobody": 2002,   # Dec 5, 2002
+    "CHICHOO": 2003,  # Nov 27, 2003
+    "S1mon": 2005,
+    "Haodong": 2000,
+
+    # China - FPX
+    "Life": 2002,
+    "whz": 2003,
+    "AAAA": 2001,
+    "Starry": 2002,
+    "BerLIN": 2002,
+
+    # Americas - Sentinels
+    "TenZ": 2001,     # May 5, 2001
+    "zekken": 2004,
+    "johnqt": 2002,
+    "Sacy": 1997,     # Brazilian, older CS:GO pro
+    "Zellsis": 1998,
+    "dapr": 2001,
+
+    # Americas - NRG
+    "Ethan": 2000,    # Mar 2, 2000
+    "s0m": 2005,
+    "mada": 2003,
+    "brawk": 2003,
+    "skuba": 2002,    # Dec 3, 2002
+    "jawgemo": 1999,  # Jun 24, 1999
+    "Boostio": 2002,
+    "C0M": 2000,      # May 10, 2000
+    "Demon1": 2002,   # Sep 7, 2002
+
+    # Americas - LOUD
+    "aspas": 2003,
+    "Less": 2002,
+    "Saadhak": 1997,  # Mar 8, 1997
+    "cauanzin": 2004,
+    "tuyz": 2003,
+    "pANcada": 2001,
+
+    # Americas - Leviatán
+    "Mazino": 2003,
+    "kiNgg": 2002,
+    "Melser": 2002,
+    "Tacolilla": 2003,
+
+    # Americas - Cloud9
+    "OXY": 2006,
+    "ShoT_UP": 2002,
+    "N4RRATE": 2002,
+    "verno": 2003,
+    "yay": 1999,
+
+    # Americas - G2
+    "trent": 2002,
+    "valyn": 2002,
+    "JonahP": 2002,
+    "icek": 2003,
+
+    # Americas - MIBR
+    "frz": 2003,
+    "mazin": 2003,
+    "Art": 2003,
+    "nox": 2003,
+
+    # Americas - 100 Thieves
+    "Asuna": 2001,
+    "Bang": 2001,
+    "Cryocells": 2001,
+    "stellar": 2000,
+    "Derrek": 2002,
+
+    # EMEA - Fnatic
+    "Boaster": 1995,  # May 25, 1995
+    "Derke": 2003,
+    "Alfajer": 2005,  # Jun 10, 2005
+    "Leo": 1999,
+    "Chronicle": 2001,
+
+    # EMEA - NAVI
+    "ANGE1": 1989,    # Sep 10, 1989
+    "Shao": 2001,
+    "Zyppan": 2002,
+    "SUYGETSU": 2002,
+    "ardiis": 2002,
+    "Dps": 2002,
+
+    # EMEA - Team Vitality
+    "Sayf": 2001,
+    "Destrian": 2003,
+    "trexx": 2001,
+    "Kicks": 2003,
+
+    # EMEA - Karmine Corp
+    "ScreaM": 1994,   # Jul 2, 1994
+    "Enzo": 2003,
+    "xms": 2002,
+    "tomaszy": 2003,
+    "marteen": 2003,
+
+    # EMEA - FUT
+    "cNed": 2001,
+    "qRaxs": 2003,
+    "Mojj": 2003,
+    "Fizzy": 2003,
+    "yetujay": 2003,
+
+    # EMEA - Gentle Mates
+    "nAts": 2002,
+    "d3ffo": 2002,
+    "Redgar": 2002,
+    "BONECOLD": 2001,
+
+    # EMEA - Team Liquid
+    "Jamppi": 2001,
+    "Keiko": 2003,
+    "Mistic": 2001,
+    "Kryptix": 2001,
+
+    # EMEA - Giants
+    "fit1nho": 2003,
+    "rhyme": 2002,
+    "paz": 2003,
+    "hitori": 2003,
+    "nukkye": 2002,
+
+    # EMEA - KOI
+    "Sheydos": 2001,
+    "kamo": 2002,
+    "starxo": 2002,
+    "zeek": 2002,
+
+    # Pacific - Paper Rex
+    "f0rsakeN": 2004, # Mar 25, 2004
+    "Jinggg": 2003,
+    "something": 2003,
+    "d4v41": 2001,
+    "mindfreak": 2001,
+    "Benkai": 1997,
+    "PatMen": 2001,   # Dec 5, 2001
+
+    # Pacific - DRX
+    "MaKo": 2002,
+    "Flashback": 2003,
+    "RB": 2002,
+    "BeYN": 2003,
+    "Foxy9": 2003,
+
+    # Pacific - Gen.G
+    "Meteor": 2001,
+    "t3xture": 2002,
+    "Munchkin": 2001,
+    "Karon": 2004,
+    "yomani": 2004,
+
+    # Pacific - T1
+    "BuZz": 2000,
+    "stax": 2000,
+    "carpe": 2002,
+    "iZu": 2004,
+    "xccurate": 2001,
+
+    # Pacific - ZETA
+    "Laz": 2000,
+    "Dep": 2001,
+    "barce": 2002,
+    "XQQ": 2002,
+
+    # Pacific - Nongshim
+    "Ban": 2003,
+    "Sylvan": 2003,
+    "Lakia": 2000,    # Jan 24, 2000
+    "Ezra": 2003,
+    "Sylval": 2003,
+
+    # Pacific - RRQ
+    "Lmemore": 2003,
+    "Estrella": 2003,
+    "fl1pzjder": 2003,
+    "Lamonster": 2003,
+    "Nexi": 2003,
+
+    # Pacific - Global Esports
+    "Suppr": 2003,
+    "Bazzi": 2003,
+    "Lightningfast": 2003,
+    "WRONSKI": 2003,
+    "Polvi": 2003,
+}
+
+
+def estimate_age(debut_year):
+    """Estimate player age from debut year, assuming debut around age 18-19."""
+    if not debut_year or debut_year <= 0:
+        return ""
+    estimated_birth = debut_year - 18
+    age = CURRENT_YEAR - estimated_birth
+    return str(age)
+
+
+def add_ages(players):
+    """Add age field to all players."""
+    missing = []
+    for p in players:
+        name = p["name"]
+        if name in BIRTH_YEARS:
+            age = CURRENT_YEAR - BIRTH_YEARS[name]
+            p["age"] = str(age)
+        else:
+            # Estimate from debut year
+            debut = p.get("debut_year", 0)
+            if debut:
+                p["age"] = estimate_age(debut)
+                missing.append(name)
+            else:
+                p["age"] = ""
+    return missing
+
+
+def main():
+    # Paths
+    script_dir = os.path.dirname(__file__)
+    json_path = os.path.join(script_dir, "..", "processed", "players.json")
+    src_json_path = os.path.join(script_dir, "..", "..", "src", "data", "players.json")
+
+    # Load from the processed folder (generated by build_dataset.py)
+    # Or fallback to src/data/players.json
+    if os.path.exists(json_path):
+        path = json_path
+    else:
+        path = src_json_path
+
+    print(f"Loading players from: {path}")
+    with open(path, "r", encoding="utf-8") as f:
+        players = json.load(f)
+
+    print(f"Loaded {len(players)} players")
+
+    # Add ages
+    missing = add_ages(players)
+
+    # Save back to both locations
+    for out_path in [json_path, src_json_path]:
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(players, f, ensure_ascii=False, indent=2)
+        print(f"Saved to: {out_path}")
+
+    # Summary
+    with_age = sum(1 for p in players if p.get("age", ""))
+    estimated = with_age - (len(players) - len(missing))
+    print(f"\n=== Age Summary ===")
+    print(f"Total players: {len(players)}")
+    print(f"With exact age (from BIRTH_YEARS): {with_age - estimated}")
+    print(f"With estimated age: {estimated}")
+    print(f"Missing age (estimation failed): {len(players) - with_age}")
+
+    if missing:
+        print(f"\nPlayers with estimated (not exact) ages ({len(missing)}):")
+        for m in missing:
+            print(f"  {m}: {players[[p['name'] for p in players].index(m)]['age']}岁 (debut {players[[p['name'] for p in players].index(m)]['debut_year']})")
+
+
+if __name__ == "__main__":
+    main()

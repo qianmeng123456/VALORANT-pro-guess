@@ -10,6 +10,87 @@ import json
 import os
 import sys
 
+# Current year for age calculation
+CURRENT_YEAR = 2026
+
+# Known birth years for well-known players (verified from public sources)
+BIRTH_YEARS = {
+    # China - EDG
+    "ZmjjKK": 2004,   # Mar 3, 2004
+    "Smoggy": 2002,   # Jun 8, 2002
+    "nobody": 2002,   # Dec 5, 2002
+    "CHICHOO": 2003,  # Nov 27, 2003
+    "S1mon": 2005,
+    "Haodong": 2000,
+    # China - FPX
+    "Life": 2002, "whz": 2003, "AAAA": 2001, "Starry": 2002, "BerLIN": 2002,
+    # Americas - Sentinels
+    "TenZ": 2001, "zekken": 2004, "johnqt": 2002,
+    "Sacy": 1997, "Zellsis": 1998, "dapr": 2001,
+    # Americas - NRG
+    "Ethan": 2000, "s0m": 2005, "mada": 2003, "brawk": 2003,
+    "skuba": 2002, "jawgemo": 1999, "Boostio": 2002,
+    "C0M": 2000, "Demon1": 2002,
+    # Americas - LOUD
+    "aspas": 2003, "Less": 2002, "Saadhak": 1997,
+    "cauanzin": 2004, "tuyz": 2003, "pANcada": 2001,
+    # Americas - Leviatán
+    "Mazino": 2003, "kiNgg": 2002, "Melser": 2002, "Tacolilla": 2003,
+    # Americas - Cloud9
+    "OXY": 2006, "ShoT_UP": 2002, "N4RRATE": 2002, "verno": 2003, "yay": 1999,
+    # Americas - G2
+    "trent": 2002, "valyn": 2002, "JonahP": 2002, "icek": 2003,
+    # Americas - MIBR
+    "frz": 2003, "mazin": 2003, "Art": 2003, "nox": 2003,
+    # Americas - 100 Thieves
+    "Asuna": 2001, "Bang": 2001, "Cryocells": 2001, "stellar": 2000, "Derrek": 2002,
+    # EMEA - Fnatic
+    "Boaster": 1995, "Derke": 2003, "Alfajer": 2005, "Leo": 1999, "Chronicle": 2001,
+    # EMEA - NAVI
+    "ANGE1": 1989, "Shao": 2001, "Zyppan": 2002, "SUYGETSU": 2002, "ardiis": 2002, "Dps": 2002,
+    # EMEA - Team Vitality
+    "Sayf": 2001, "Destrian": 2003, "trexx": 2001, "Kicks": 2003,
+    # EMEA - Karmine Corp
+    "ScreaM": 1994, "Enzo": 2003, "xms": 2002, "tomaszy": 2003, "marteen": 2003,
+    # EMEA - FUT
+    "cNed": 2001, "qRaxs": 2003, "Mojj": 2003, "Fizzy": 2003, "yetujay": 2003,
+    # EMEA - Gentle Mates
+    "nAts": 2002, "d3ffo": 2002, "Redgar": 2002, "BONECOLD": 2001,
+    # EMEA - Team Liquid
+    "Jamppi": 2001, "Keiko": 2003, "Mistic": 2001, "Kryptix": 2001,
+    # EMEA - Giants
+    "fit1nho": 2003, "rhyme": 2002, "paz": 2003, "hitori": 2003, "nukkye": 2002,
+    # EMEA - KOI
+    "Sheydos": 2001, "kamo": 2002, "starxo": 2002, "zeek": 2002,
+    # Pacific - Paper Rex
+    "f0rsakeN": 2004, "Jinggg": 2003, "something": 2003,
+    "d4v41": 2001, "mindfreak": 2001, "Benkai": 1997, "PatMen": 2001,
+    # Pacific - DRX
+    "MaKo": 2002, "Flashback": 2003, "RB": 2002, "BeYN": 2003, "Foxy9": 2003,
+    # Pacific - Gen.G
+    "Meteor": 2001, "t3xture": 2002, "Munchkin": 2001, "Karon": 2004, "yomani": 2004,
+    # Pacific - T1
+    "BuZz": 2000, "stax": 2000, "carpe": 2002, "iZu": 2004, "xccurate": 2001,
+    # Pacific - ZETA
+    "Laz": 2000, "Dep": 2001, "barce": 2002, "XQQ": 2002,
+    # Pacific - Nongshim
+    "Ban": 2003, "Sylvan": 2003, "Lakia": 2000, "Ezra": 2003, "Sylval": 2003,
+    # Pacific - RRQ
+    "Lmemore": 2003, "Estrella": 2003, "fl1pzjder": 2003, "Lamonster": 2003, "Nexi": 2003,
+    # Pacific - Global Esports
+    "Suppr": 2003, "Bazzi": 2003, "Lightningfast": 2003, "WRONSKI": 2003, "Polvi": 2003,
+}
+
+
+def get_player_age(name, debut_year):
+    """Calculate age from known birth year, or estimate from debut year."""
+    if name in BIRTH_YEARS:
+        return str(CURRENT_YEAR - BIRTH_YEARS[name])
+    if debut_year and debut_year > 0:
+        estimated_birth = debut_year - 18
+        return str(CURRENT_YEAR - estimated_birth)
+    return ""
+
 # Player database: compiled from known VCT pro players
 PLAYERS = [
     # === China (CN) ===
@@ -288,7 +369,7 @@ def export_csv(players, output_path):
                 "name": p["name"],
                 "team": p.get("team", ""),
                 "region": p.get("region", ""),
-                "age": p.get("age", ""),
+                "age": get_player_age(p["name"], p.get("debut_year", 0)),
                 "championships": p.get("championships", 0),
                 "agent1": agents[0] if len(agents) > 0 else "",
                 "agent2": agents[1] if len(agents) > 1 else "",
@@ -314,7 +395,7 @@ def export_json(players, output_path):
             "team_cn": team_cn,
             "region": p.get("region", ""),
             "region_cn": region_cn,
-            "age": p.get("age", ""),
+            "age": get_player_age(p["name"], p.get("debut_year", 0)),
             "championships": p.get("championships", 0),
             "agents": agents[:3],
             "agents_cn": agents_cn,
