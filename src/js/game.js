@@ -228,11 +228,11 @@ function generateShareText() {
   let text = `🎯 无畏契约选手猜一猜\n`;
   text += `${guesses.length} 次猜中 ${target.name}\n\n`;
 
-  const fieldLabels = ['ID', '年龄', '赛区', '战队', '冠军', '英雄'];
+  const fieldLabels = ['ID', '年龄', '赛区', '战队', '冠军', '英雄', '国籍', '出道'];
+  const fieldKeys = ['id', 'age', 'region', 'team', 'champ', 'agent', 'nationality', 'debut'];
 
   for (const guess of guesses) {
-    const line = fieldLabels.map((label, i) => {
-      const key = ['id', 'age', 'region', 'team', 'champ', 'agent'][i];
+    const line = fieldKeys.map(key => {
       return emojiMap[guess.fields[key].status] || '⬜';
     }).join('');
     text += line + '\n';
