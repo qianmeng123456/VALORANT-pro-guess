@@ -6,6 +6,7 @@
 const DATA = {
   players: [],
   playerMap: {}, // name -> player
+  playerMapLower: {}, // lowercase name -> player (for case-insensitive lookup)
   allNames: [],  // sorted list of player names
   loaded: false,
   loadError: null,
@@ -17,10 +18,12 @@ async function loadPlayerData() {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     DATA.players = await response.json();
 
-    // Build lookup map and name list
+    // Build lookup maps and name list
     DATA.playerMap = {};
+    DATA.playerMapLower = {};
     DATA.players.forEach(p => {
       DATA.playerMap[p.name] = p;
+      DATA.playerMapLower[p.name.toLowerCase()] = p;
     });
     DATA.allNames = DATA.players.map(p => p.name).sort();
     DATA.loaded = true;
@@ -40,12 +43,12 @@ function enableGuessInput() {
   const input = document.getElementById('guess-input');
   const btn = document.getElementById('guess-btn');
   input.disabled = false;
-  input.placeholder = '输入选手 ID...';
+  input.placeholder = '输入选手 ID... 如 ZmjjKK、f0rsakeN、TenZ';
   btn.disabled = false;
 }
 
 function findPlayer(name) {
-  return DATA.playerMap[name] || null;
+  return DATA.playerMap[name] || DATA.playerMapLower[name.toLowerCase()] || null;
 }
 
 function searchPlayers(query, regionFilter, teamFilter) {

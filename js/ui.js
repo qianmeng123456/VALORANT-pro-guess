@@ -141,8 +141,8 @@ function submitGuess() {
     return;
   }
 
-  // Check if already guessed
-  if (GAME.guesses.some(g => g.guess.name === name)) {
+  // Check if already guessed (case-insensitive)
+  if (GAME.guesses.some(g => g.guess.name.toLowerCase() === name.toLowerCase())) {
     setHint(`⚠️ 已经猜过 "${name}" 了，试试其他选手`);
     return;
   }
@@ -237,10 +237,6 @@ function renderRegionField(field) {
     html += `<span class="${cls}">${item.name_cn || item.name}</span>`;
   });
   html += '</div>';
-  const statusLabel = field.status === 'correct' ? '全部正确'
-    : field.status === 'partial' ? `匹配 ${field.matchCount}/${field.totalCount}`
-    : '无匹配';
-  html += `<span class="badge badge-${field.status} multi-status">${statusLabel}</span>`;
   html += '</div>';
   return html;
 }
@@ -256,10 +252,6 @@ function renderTeamField(field) {
     html += `<span class="${cls}">${item.name_cn || item.name}</span>`;
   });
   html += '</div>';
-  const statusLabel = field.status === 'correct' ? '全部正确'
-    : field.status === 'partial' ? `匹配 ${field.matchCount}/${field.totalCount}`
-    : '无匹配';
-  html += `<span class="badge badge-${field.status} multi-status">${statusLabel}</span>`;
   html += '</div>';
   return html;
 }
@@ -295,12 +287,12 @@ function renderAgentField(field, guess) {
     html += `<span class="badge badge-wrong">-</span>`;
   }
 
-  // Status indicator
+  // Status indicator — color only, no count text
   const badgeClass = status === 'correct' ? 'badge-correct'
     : status === 'partial' ? 'badge-partial' : 'badge-wrong';
-  const label = status === 'correct' ? '全部正确'
-    : status === 'partial' ? `匹配 ${field.matchCount}/3` : '无匹配';
-  html += `<span class="badge ${badgeClass}" style="margin-left:4px;font-size:0.7rem">${label}</span>`;
+  const label = status === 'correct' ? '✓'
+    : status === 'partial' ? '~' : '✗';
+  html += `<span class="badge ${badgeClass}" style="margin-left:4px;font-size:0.65rem;min-width:20px;padding:1px 5px">${label}</span>`;
   html += '</div>';
 
   return html;
@@ -326,7 +318,7 @@ function disableInput(disabled) {
   input.disabled = disabled;
   btn.disabled = disabled;
   if (revealBtn) revealBtn.disabled = disabled;
-  input.placeholder = disabled ? '游戏已结束，刷新页面开始新一局' : '输入选手 ID...';
+  input.placeholder = disabled ? '游戏已结束，刷新页面开始新一局' : '输入选手 ID... 如 ZmjjKK、f0rsakeN、TenZ';
 }
 
 function setHint(text) {

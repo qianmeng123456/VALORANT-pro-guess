@@ -95,6 +95,26 @@ header {
   background: var(--bg-hover);
 }
 
+/* Feedback button — more visible */
+.feedback-header-btn {
+  background: rgba(229, 70, 74, 0.1);
+  border: 1px solid rgba(229, 70, 74, 0.3);
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  transition: all var(--transition);
+  line-height: 1;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.feedback-header-btn:hover {
+  background: rgba(229, 70, 74, 0.2);
+  border-color: var(--accent-red);
+  color: var(--text-primary);
+}
+
 header h1 {
   font-size: 1.8rem;
   font-weight: 700;
@@ -537,12 +557,6 @@ header h1 {
   font-size: 0.65rem;
   padding: 1px 5px;
   white-space: nowrap;
-}
-
-/* Status label below multi-list */
-.multi-status {
-  font-size: 0.55rem !important;
-  padding: 1px 6px !important;
 }
 
 /* ===== Status Badges ===== */
@@ -1213,14 +1227,11 @@ input[type="range"]::-moz-range-thumb {
     font-size: 0.55rem;
     padding: 1px 4px;
   }
-  .multi-status {
-    font-size: 0.5rem !important;
-    padding: 1px 4px !important;
-  }
 
   .agent-icons-row .badge {
-    font-size: 0.6rem !important;
-    padding: 1px 5px !important;
+    font-size: 0.55rem !important;
+    min-width: 16px !important;
+    padding: 0 4px !important;
   }
 
   .modal { padding: 24px 16px; }
@@ -1259,18 +1270,15 @@ input[type="range"]::-moz-range-thumb {
     font-size: 0.5rem;
     padding: 1px 3px;
   }
-  .multi-status {
-    font-size: 0.45rem !important;
-    padding: 0 3px !important;
-  }
 
   .agent-icon-wrap {
     width: 20px;
     height: 20px;
   }
   .agent-icons-row .badge {
-    font-size: 0.55rem !important;
-    padding: 0 4px !important;
+    font-size: 0.5rem !important;
+    min-width: 14px !important;
+    padding: 0 3px !important;
   }
 }
 
