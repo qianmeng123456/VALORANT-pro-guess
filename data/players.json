@@ -5,7 +5,7 @@
     "team_cn": "EDG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "22",
     "championships": 2,
     "agents": [
       "Jett",
@@ -31,7 +31,7 @@
     "team_cn": "EDG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "24",
     "championships": 2,
     "agents": [
       "Raze",
@@ -57,7 +57,7 @@
     "team_cn": "EDG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "24",
     "championships": 2,
     "agents": [
       "Sova",
@@ -83,7 +83,7 @@
     "team_cn": "EDG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "23",
     "championships": 2,
     "agents": [
       "Viper",
@@ -113,7 +113,7 @@
     "team_cn": "EDG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 1,
     "agents": [
       "Killjoy",
@@ -139,7 +139,7 @@
     "team_cn": "EDG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "26",
     "championships": 1,
     "agents": [
       "Killjoy",
@@ -165,7 +165,7 @@
     "team_cn": "FPX",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Raze",
@@ -195,7 +195,7 @@
     "team_cn": "FPX",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Jett",
@@ -221,7 +221,7 @@
     "team_cn": "FPX",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Viper",
@@ -247,7 +247,7 @@
     "team_cn": "FPX",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -273,7 +273,7 @@
     "team_cn": "FPX",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Sage",
@@ -303,7 +303,7 @@
     "team_cn": "TE",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Jett",
@@ -329,7 +329,7 @@
     "team_cn": "TE",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Omen",
@@ -355,7 +355,7 @@
     "team_cn": "TE",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Sova",
@@ -381,7 +381,7 @@
     "team_cn": "TE",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -407,7 +407,7 @@
     "team_cn": "TE",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Raze",
@@ -433,7 +433,7 @@
     "team_cn": "BLG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "22",
     "championships": 0,
     "agents": [
       "Raze",
@@ -459,7 +459,7 @@
     "team_cn": "BLG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "22",
     "championships": 0,
     "agents": [
       "Omen",
@@ -485,7 +485,7 @@
     "team_cn": "BLG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Sova",
@@ -511,7 +511,7 @@
     "team_cn": "BLG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -537,7 +537,7 @@
     "team_cn": "BLG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Raze",
@@ -563,7 +563,7 @@
     "team_cn": "DRG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Jett",
@@ -589,7 +589,7 @@
     "team_cn": "DRG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Omen",
@@ -615,7 +615,7 @@
     "team_cn": "DRG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -641,7 +641,7 @@
     "team_cn": "DRG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Sova",
@@ -667,7 +667,7 @@
     "team_cn": "DRG",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Raze",
@@ -693,7 +693,7 @@
     "team_cn": "Wolves",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Jett",
@@ -719,7 +719,7 @@
     "team_cn": "Wolves",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Sova",
@@ -745,7 +745,7 @@
     "team_cn": "Wolves",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Omen",
@@ -771,7 +771,7 @@
     "team_cn": "Wolves",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -797,7 +797,7 @@
     "team_cn": "Wolves",
     "region": "China",
     "region_cn": "中国",
-    "age": "",
+    "age": "21",
     "championships": 0,
     "agents": [
       "Raze",
@@ -823,7 +823,7 @@
     "team_cn": "Sentinels",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "25",
     "championships": 2,
     "agents": [
       "Jett",
@@ -853,7 +853,7 @@
     "team_cn": "Sentinels",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "22",
     "championships": 1,
     "agents": [
       "Raze",
@@ -883,7 +883,7 @@
     "team_cn": "Sentinels",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Killjoy",
@@ -909,7 +909,7 @@
     "team_cn": "Sentinels",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "29",
     "championships": 1,
     "agents": [
       "Sova",
@@ -939,7 +939,7 @@
     "team_cn": "Sentinels",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "28",
     "championships": 1,
     "agents": [
       "Omen",
@@ -965,7 +965,7 @@
     "team_cn": "Sentinels",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "25",
     "championships": 1,
     "agents": [
       "Cypher",
@@ -991,7 +991,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "26",
     "championships": 2,
     "agents": [
       "KAY/O",
@@ -1021,7 +1021,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "21",
     "championships": 1,
     "agents": [
       "Jett",
@@ -1047,7 +1047,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 1,
     "agents": [
       "Omen",
@@ -1073,7 +1073,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 1,
     "agents": [
       "Killjoy",
@@ -1099,7 +1099,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Raze",
@@ -1125,7 +1125,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "27",
     "championships": 1,
     "agents": [
       "Raze",
@@ -1155,7 +1155,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Killjoy",
@@ -1185,7 +1185,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "26",
     "championships": 1,
     "agents": [
       "Sova",
@@ -1215,7 +1215,7 @@
     "team_cn": "NRG",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Jett",
@@ -1245,7 +1245,7 @@
     "team_cn": "LOUD",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 1,
     "agents": [
       "Jett",
@@ -1271,7 +1271,7 @@
     "team_cn": "LOUD",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Killjoy",
@@ -1297,7 +1297,7 @@
     "team_cn": "LOUD",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "29",
     "championships": 1,
     "agents": [
       "Sova",
@@ -1323,7 +1323,7 @@
     "team_cn": "LOUD",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "22",
     "championships": 0,
     "agents": [
       "Raze",
@@ -1349,7 +1349,7 @@
     "team_cn": "LOUD",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -1375,7 +1375,7 @@
     "team_cn": "LOUD",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "25",
     "championships": 1,
     "agents": [
       "Viper",
@@ -1405,7 +1405,7 @@
     "team_cn": "LEV",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Raze",
@@ -1431,7 +1431,7 @@
     "team_cn": "LEV",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Omen",
@@ -1457,7 +1457,7 @@
     "team_cn": "LEV",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Sova",
@@ -1483,7 +1483,7 @@
     "team_cn": "LEV",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -1509,7 +1509,7 @@
     "team_cn": "C9",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "20",
     "championships": 0,
     "agents": [
       "Jett",
@@ -1535,7 +1535,7 @@
     "team_cn": "C9",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -1561,7 +1561,7 @@
     "team_cn": "C9",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Omen",
@@ -1587,7 +1587,7 @@
     "team_cn": "C9",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Raze",
@@ -1613,7 +1613,7 @@
     "team_cn": "C9",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "27",
     "championships": 0,
     "agents": [
       "Chamber",
@@ -1643,7 +1643,7 @@
     "team_cn": "G2",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Sova",
@@ -1669,7 +1669,7 @@
     "team_cn": "G2",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Omen",
@@ -1695,7 +1695,7 @@
     "team_cn": "G2",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Breach",
@@ -1721,7 +1721,7 @@
     "team_cn": "G2",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -1747,7 +1747,7 @@
     "team_cn": "MIBR",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Jett",
@@ -1773,7 +1773,7 @@
     "team_cn": "MIBR",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -1799,7 +1799,7 @@
     "team_cn": "MIBR",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Sova",
@@ -1825,7 +1825,7 @@
     "team_cn": "MIBR",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -1851,7 +1851,7 @@
     "team_cn": "100T",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Jett",
@@ -1877,7 +1877,7 @@
     "team_cn": "100T",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Sova",
@@ -1903,7 +1903,7 @@
     "team_cn": "100T",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Raze",
@@ -1929,7 +1929,7 @@
     "team_cn": "100T",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "26",
     "championships": 0,
     "agents": [
       "Omen",
@@ -1955,7 +1955,7 @@
     "team_cn": "100T",
     "region": "Americas",
     "region_cn": "美洲",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -1981,7 +1981,7 @@
     "team_cn": "Fnatic",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "31",
     "championships": 2,
     "agents": [
       "Sova",
@@ -2007,7 +2007,7 @@
     "team_cn": "Fnatic",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 2,
     "agents": [
       "Jett",
@@ -2033,7 +2033,7 @@
     "team_cn": "Fnatic",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "21",
     "championships": 2,
     "agents": [
       "Killjoy",
@@ -2059,7 +2059,7 @@
     "team_cn": "Fnatic",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "27",
     "championships": 2,
     "agents": [
       "Omen",
@@ -2085,7 +2085,7 @@
     "team_cn": "Fnatic",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 2,
     "agents": [
       "Raze",
@@ -2117,7 +2117,7 @@
     "team_cn": "NAVI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "37",
     "championships": 0,
     "agents": [
       "Omen",
@@ -2147,7 +2147,7 @@
     "team_cn": "NAVI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Sova",
@@ -2177,7 +2177,7 @@
     "team_cn": "NAVI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Jett",
@@ -2207,7 +2207,7 @@
     "team_cn": "NAVI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -2237,7 +2237,7 @@
     "team_cn": "NAVI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Jett",
@@ -2273,7 +2273,7 @@
     "team_cn": "NAVI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -2299,7 +2299,7 @@
     "team_cn": "VIT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Jett",
@@ -2325,7 +2325,7 @@
     "team_cn": "VIT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -2351,7 +2351,7 @@
     "team_cn": "VIT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Sova",
@@ -2377,7 +2377,7 @@
     "team_cn": "VIT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -2403,7 +2403,7 @@
     "team_cn": "KC",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "32",
     "championships": 0,
     "agents": [
       "Jett",
@@ -2429,7 +2429,7 @@
     "team_cn": "KC",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Sova",
@@ -2455,7 +2455,7 @@
     "team_cn": "KC",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -2481,7 +2481,7 @@
     "team_cn": "KC",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Jett",
@@ -2507,7 +2507,7 @@
     "team_cn": "KC",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -2533,7 +2533,7 @@
     "team_cn": "FUT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 1,
     "agents": [
       "Jett",
@@ -2563,7 +2563,7 @@
     "team_cn": "FUT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Sova",
@@ -2589,7 +2589,7 @@
     "team_cn": "FUT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -2615,7 +2615,7 @@
     "team_cn": "FUT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Raze",
@@ -2641,7 +2641,7 @@
     "team_cn": "FUT",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -2667,7 +2667,7 @@
     "team_cn": "M8",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Viper",
@@ -2701,7 +2701,7 @@
     "team_cn": "M8",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Raze",
@@ -2731,7 +2731,7 @@
     "team_cn": "M8",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -2763,7 +2763,7 @@
     "team_cn": "M8",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 1,
     "agents": [
       "Omen",
@@ -2795,7 +2795,7 @@
     "team_cn": "TL",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Jett",
@@ -2821,7 +2821,7 @@
     "team_cn": "TL",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Sova",
@@ -2847,7 +2847,7 @@
     "team_cn": "TL",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Omen",
@@ -2873,7 +2873,7 @@
     "team_cn": "TL",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Raze",
@@ -2899,7 +2899,7 @@
     "team_cn": "Giants",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Jett",
@@ -2925,7 +2925,7 @@
     "team_cn": "Giants",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Sova",
@@ -2951,7 +2951,7 @@
     "team_cn": "Giants",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -2977,7 +2977,7 @@
     "team_cn": "Giants",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -3003,7 +3003,7 @@
     "team_cn": "Giants",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3029,7 +3029,7 @@
     "team_cn": "KOI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Omen",
@@ -3055,7 +3055,7 @@
     "team_cn": "KOI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3081,7 +3081,7 @@
     "team_cn": "KOI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Sova",
@@ -3107,7 +3107,7 @@
     "team_cn": "KOI",
     "region": "EMEA",
     "region_cn": "EMEA",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Raze",
@@ -3137,7 +3137,7 @@
     "team_cn": "PRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "22",
     "championships": 0,
     "agents": [
       "Sova",
@@ -3163,7 +3163,7 @@
     "team_cn": "PRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3189,7 +3189,7 @@
     "team_cn": "PRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Jett",
@@ -3215,7 +3215,7 @@
     "team_cn": "PRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -3241,7 +3241,7 @@
     "team_cn": "PRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Omen",
@@ -3267,7 +3267,7 @@
     "team_cn": "PRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "29",
     "championships": 0,
     "agents": [
       "Sova",
@@ -3293,7 +3293,7 @@
     "team_cn": "PRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3319,7 +3319,7 @@
     "team_cn": "DRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Omen",
@@ -3345,7 +3345,7 @@
     "team_cn": "DRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -3371,7 +3371,7 @@
     "team_cn": "DRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3397,7 +3397,7 @@
     "team_cn": "DRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Sova",
@@ -3423,7 +3423,7 @@
     "team_cn": "DRX",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3449,7 +3449,7 @@
     "team_cn": "Gen.G",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "25",
     "championships": 1,
     "agents": [
       "Omen",
@@ -3475,7 +3475,7 @@
     "team_cn": "Gen.G",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "24",
     "championships": 1,
     "agents": [
       "Jett",
@@ -3505,7 +3505,7 @@
     "team_cn": "Gen.G",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "25",
     "championships": 1,
     "agents": [
       "Sova",
@@ -3531,7 +3531,7 @@
     "team_cn": "Gen.G",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "22",
     "championships": 1,
     "agents": [
       "Chamber",
@@ -3557,7 +3557,7 @@
     "team_cn": "Gen.G",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "22",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3583,7 +3583,7 @@
     "team_cn": "T1",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "26",
     "championships": 1,
     "agents": [
       "Jett",
@@ -3613,7 +3613,7 @@
     "team_cn": "T1",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "26",
     "championships": 0,
     "agents": [
       "Sova",
@@ -3643,7 +3643,7 @@
     "team_cn": "T1",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Jett",
@@ -3669,7 +3669,7 @@
     "team_cn": "T1",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "22",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3695,7 +3695,7 @@
     "team_cn": "T1",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -3721,7 +3721,7 @@
     "team_cn": "ZETA",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "26",
     "championships": 0,
     "agents": [
       "Jett",
@@ -3747,7 +3747,7 @@
     "team_cn": "ZETA",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "25",
     "championships": 0,
     "agents": [
       "Omen",
@@ -3773,7 +3773,7 @@
     "team_cn": "ZETA",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Sova",
@@ -3799,7 +3799,7 @@
     "team_cn": "ZETA",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "24",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -3825,7 +3825,7 @@
     "team_cn": "NS",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Jett",
@@ -3851,7 +3851,7 @@
     "team_cn": "NS",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -3877,7 +3877,7 @@
     "team_cn": "NS",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "26",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -3907,7 +3907,7 @@
     "team_cn": "NS",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Raze",
@@ -3933,7 +3933,7 @@
     "team_cn": "NS",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Sova",
@@ -3959,7 +3959,7 @@
     "team_cn": "RRQ",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Jett",
@@ -3985,7 +3985,7 @@
     "team_cn": "RRQ",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -4011,7 +4011,7 @@
     "team_cn": "RRQ",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Sova",
@@ -4037,7 +4037,7 @@
     "team_cn": "RRQ",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -4063,7 +4063,7 @@
     "team_cn": "RRQ",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Raze",
@@ -4089,7 +4089,7 @@
     "team_cn": "GE",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Jett",
@@ -4115,7 +4115,7 @@
     "team_cn": "GE",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Omen",
@@ -4141,7 +4141,7 @@
     "team_cn": "GE",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Sova",
@@ -4167,7 +4167,7 @@
     "team_cn": "GE",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Killjoy",
@@ -4193,7 +4193,7 @@
     "team_cn": "GE",
     "region": "Pacific",
     "region_cn": "太平洋",
-    "age": "",
+    "age": "23",
     "championships": 0,
     "agents": [
       "Raze",
