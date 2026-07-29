@@ -229,16 +229,18 @@ function renderRegionField(field) {
   if (!field.items || field.items.length === 0) {
     return feedbackBadge(field.status, '未知');
   }
-  let html = '<div class="multi-list">';
+  let html = '<div class="multi-field">';
+  html += '<div class="multi-list">';
   field.items.forEach(item => {
     const cls = item.matched ? 'badge badge-correct' : 'badge badge-wrong';
-    html += `<span class="${cls}" style="font-size:0.7rem">${item.name_cn || item.name}</span>`;
+    html += `<span class="${cls}">${item.name_cn || item.name}</span>`;
   });
   html += '</div>';
   const statusLabel = field.status === 'correct' ? '全部正确'
     : field.status === 'partial' ? `匹配 ${field.matchCount}/${field.totalCount}`
     : '无匹配';
-  html += `<span class="badge badge-${field.status}" style="margin-left:4px;font-size:0.65rem">${statusLabel}</span>`;
+  html += `<span class="badge badge-${field.status} multi-status">${statusLabel}</span>`;
+  html += '</div>';
   return html;
 }
 
@@ -246,16 +248,18 @@ function renderTeamField(field) {
   if (!field.items || field.items.length === 0) {
     return feedbackBadge(field.status, '未知');
   }
-  let html = '<div class="multi-list">';
+  let html = '<div class="multi-field">';
+  html += '<div class="multi-list">';
   field.items.forEach(item => {
     const cls = item.matched ? 'badge badge-correct' : 'badge badge-wrong';
-    html += `<span class="${cls}" style="font-size:0.7rem">${item.name_cn || item.name}</span>`;
+    html += `<span class="${cls}">${item.name_cn || item.name}</span>`;
   });
   html += '</div>';
   const statusLabel = field.status === 'correct' ? '全部正确'
     : field.status === 'partial' ? `匹配 ${field.matchCount}/${field.totalCount}`
     : '无匹配';
-  html += `<span class="badge badge-${field.status}" style="margin-left:4px;font-size:0.65rem">${statusLabel}</span>`;
+  html += `<span class="badge badge-${field.status} multi-status">${statusLabel}</span>`;
+  html += '</div>';
   return html;
 }
 
@@ -381,7 +385,7 @@ function showWinModal(revealed) {
     'correct': '🟩', 'partial': '🟨', 'wrong': '⬛',
     'hint-up': '🔺', 'hint-down': '🔻',
   };
-  const fieldKeys = ['id', 'age', 'region', 'team', 'champ', 'agent'];
+  const fieldKeys = ['id', 'age', 'region', 'team', 'champ', 'agent', 'nationality', 'debut'];
 
   let resultHtml = '';
   GAME.guesses.forEach(g => {
