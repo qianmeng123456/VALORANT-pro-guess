@@ -187,15 +187,16 @@ function renderGuessRow(result) {
   const row = document.createElement('div');
   row.className = 'guess-row';
 
-  // ID
   const idBadge = feedbackBadge(f.id.status, guess.name);
   row.innerHTML = `
     <div class="col col-id">${idBadge}</div>
     <div class="col col-age">${renderAgeField(f.age)}</div>
-    <div class="col col-region">${feedbackBadge(f.region.status, f.region.value)}</div>
-    <div class="col col-team">${feedbackBadge(f.team.status, f.team.value)}</div>
+    <div class="col col-region">${renderRegionField(f.region)}</div>
+    <div class="col col-team">${renderTeamField(f.team)}</div>
     <div class="col col-champ">${renderChampField(f.champ)}</div>
     <div class="col col-hero">${renderAgentField(f.agent, guess)}</div>
+    <div class="col col-nationality">${feedbackBadge(f.nationality.status, f.nationality.value)}</div>
+    <div class="col col-debut">${renderDebutField(f.debut)}</div>
   `;
 
   container.insertBefore(row, container.firstChild);
@@ -216,6 +217,49 @@ function renderAgeField(field) {
 }
 
 function renderChampField(field) {
+  if (field.status === 'hint-up') {
+    return `<span class="badge badge-hint-up">${field.value} 🔺</span>`;
+  } else if (field.status === 'hint-down') {
+    return `<span class="badge badge-hint-down">${field.value} 🔻</span>`;
+  }
+  return feedbackBadge(field.status, field.value);
+}
+
+function renderRegionField(field) {
+  if (!field.items || field.items.length === 0) {
+    return feedbackBadge(field.status, '未知');
+  }
+  let html = '<div class="multi-list">';
+  field.items.forEach(item => {
+    const cls = item.matched ? 'badge badge-correct' : 'badge badge-wrong';
+    html += `<span class="${cls}" style="font-size:0.7rem">${item.name_cn || item.name}</span>`;
+  });
+  html += '</div>';
+  const statusLabel = field.status === 'correct' ? '全部正确'
+    : field.status === 'partial' ? `匹配 ${field.matchCount}/${field.totalCount}`
+    : '无匹配';
+  html += `<span class="badge badge-${field.status}" style="margin-left:4px;font-size:0.65rem">${statusLabel}</span>`;
+  return html;
+}
+
+function renderTeamField(field) {
+  if (!field.items || field.items.length === 0) {
+    return feedbackBadge(field.status, '未知');
+  }
+  let html = '<div class="multi-list">';
+  field.items.forEach(item => {
+    const cls = item.matched ? 'badge badge-correct' : 'badge badge-wrong';
+    html += `<span class="${cls}" style="font-size:0.7rem">${item.name_cn || item.name}</span>`;
+  });
+  html += '</div>';
+  const statusLabel = field.status === 'correct' ? '全部正确'
+    : field.status === 'partial' ? `匹配 ${field.matchCount}/${field.totalCount}`
+    : '无匹配';
+  html += `<span class="badge badge-${field.status}" style="margin-left:4px;font-size:0.65rem">${statusLabel}</span>`;
+  return html;
+}
+
+function renderDebutField(field) {
   if (field.status === 'hint-up') {
     return `<span class="badge badge-hint-up">${field.value} 🔺</span>`;
   } else if (field.status === 'hint-down') {

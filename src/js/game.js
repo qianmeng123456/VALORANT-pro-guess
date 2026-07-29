@@ -51,8 +51,22 @@ function compareGuess(guessedName) {
     guess: guess,
     fields: {},
     matchCount: 0,
-    totalFields: 6,
+    totalFields: 8,
   };
+
+  // Helper: get all teams (current + previous) for a player
+  function getAllTeams(p) {
+    const teams = p.team ? [p.team] : [];
+    if (p.previous_teams) teams.push(...p.previous_teams);
+    return teams;
+  }
+
+  // Helper: get all regions (current + previous) for a player
+  function getAllRegions(p) {
+    const regions = p.region ? [p.region] : [];
+    if (p.previous_regions) regions.push(...p.previous_regions);
+    return regions;
+  }
 
   // 1. ID - exact match
   if (guess.name === target.name) {
@@ -69,24 +83,53 @@ function compareGuess(guessedName) {
   } else if (isNaN(gAge) || guess.age === '') {
     result.fields.age = { status: FEEDBACK.WRONG, value: guess.age || '??' };
   } else if (gAge < tAge) {
-    result.fields.age = { status: FEEDBACK.HINT_UP, value: guess.age }; // target is older
+    result.fields.age = { status: FEEDBACK.HINT_UP, value: guess.age };
   } else {
-    result.fields.age = { status: FEEDBACK.HINT_DOWN, value: guess.age }; // target is younger
+    result.fields.age = { status: FEEDBACK.HINT_DOWN, value: guess.age };
   }
 
-  // 3. Region
-  if (guess.region === target.region) {
-    result.fields.region = { status: FEEDBACK.CORRECT, value: REGION_CN[guess.region] || guess.region };
-  } else {
-    result.fields.region = { status: FEEDBACK.WRONG, value: REGION_CN[guess.region] || guess.region };
-  }
+  // 3. Region - multi-value matching
+  const guessRegions = getAllRegions(guess);
+  const targetRegions = getAllRegions(target);
+  const regionItems = guessRegions.map(r => ({
+    name: r,
+    name_cn: REGION_CN[r] || r,
+    matched: targetRegions.includes(r)
+  }));
+  const regionMatchCount = regionItems.filter(i => i.matched).length;
+  result.fields.region = {
+    status: regionMatchCount === guessRegions.length ? FEEDBACK.CORRECT
+          : regionMatchCount > 0 ? FEEDBACK.PARTIAL : FEEDBACK.WRONG,
+    items: regionItems,
+    matchCount: regionMatchCount,
+    totalCount: guessRegions.length,
+  };
 
-  // 4. Team
-  if (guess.team === target.team) {
-    result.fields.team = { status: FEEDBACK.CORRECT, value: guess.team_cn || guess.team };
-  } else {
-    result.fields.team = { status: FEEDBACK.WRONG, value: guess.team_cn || guess.team };
-  }
+  // 4. Team - multi-value matching
+  const guessTeams = getAllTeams(guess);
+  const targetTeams = getAllTeams(target);
+  const teamCnMap = {};
+  teamCnMap[guess.team] = guess.team_cn || guess.team;
+  if (target.team_cn) teamCnMap[target.team] = target.team_cn;
+  (guess.previous_teams_cn || []).forEach((cn, i) => {
+    teamCnMap[guess.previous_teams[i]] = cn;
+  });
+  (target.previous_teams_cn || []).forEach((cn, i) => {
+    teamCnMap[target.previous_teams[i]] = cn;
+  });
+  const teamItems = guessTeams.map(t => ({
+    name: t,
+    name_cn: teamCnMap[t] || t,
+    matched: targetTeams.includes(t)
+  }));
+  const teamMatchCount = teamItems.filter(i => i.matched).length;
+  result.fields.team = {
+    status: teamMatchCount === guessTeams.length ? FEEDBACK.CORRECT
+          : teamMatchCount > 0 ? FEEDBACK.PARTIAL : FEEDBACK.WRONG,
+    items: teamItems,
+    matchCount: teamMatchCount,
+    totalCount: guessTeams.length,
+  };
 
   // 5. Championship count
   const gChamp = parseInt(guess.championships) || 0;
@@ -106,20 +149,39 @@ function compareGuess(guessedName) {
     name: agent,
     matched: targetAgents.includes(agent.toLowerCase())
   }));
-  const matchCount = agentMatches.filter(a => a.matched).length;
-
-  if (matchCount === 3) {
+  const agentMatchCount = agentMatches.filter(a => a.matched).length;
+  if (agentMatchCount === 3) {
     result.fields.agent = { status: FEEDBACK.CORRECT, value: guess.agents || [], matches: agentMatches, matchCount: 3 };
-  } else if (matchCount > 0) {
-    result.fields.agent = { status: FEEDBACK.PARTIAL, value: guess.agents || [], matches: agentMatches, matchCount };
+  } else if (agentMatchCount > 0) {
+    result.fields.agent = { status: FEEDBACK.PARTIAL, value: guess.agents || [], matches: agentMatches, matchCount: agentMatchCount };
   } else {
     result.fields.agent = { status: FEEDBACK.WRONG, value: guess.agents || [], matches: agentMatches, matchCount: 0 };
+  }
+
+  // 7. Nationality
+  if (guess.nationality && target.nationality && guess.nationality === target.nationality) {
+    result.fields.nationality = { status: FEEDBACK.CORRECT, value: guess.nationality_cn || guess.nationality };
+  } else {
+    result.fields.nationality = { status: FEEDBACK.WRONG, value: guess.nationality_cn || guess.nationality || '??' };
+  }
+
+  // 8. Debut year
+  const gDebut = parseInt(guess.debut_year) || 0;
+  const tDebut = parseInt(target.debut_year) || 0;
+  if (gDebut === tDebut && gDebut > 0) {
+    result.fields.debut = { status: FEEDBACK.CORRECT, value: gDebut };
+  } else if (gDebut === 0 || tDebut === 0) {
+    result.fields.debut = { status: FEEDBACK.WRONG, value: gDebut || '??' };
+  } else if (gDebut < tDebut) {
+    result.fields.debut = { status: FEEDBACK.HINT_UP, value: gDebut };
+  } else {
+    result.fields.debut = { status: FEEDBACK.HINT_DOWN, value: gDebut };
   }
 
   // Count total matches
   let correctCount = 0;
   let partialCount = 0;
-  for (const key of ['id', 'age', 'region', 'team', 'champ', 'agent']) {
+  for (const key of ['id', 'age', 'region', 'team', 'champ', 'agent', 'nationality', 'debut']) {
     if (result.fields[key].status === FEEDBACK.CORRECT) correctCount++;
     else if (result.fields[key].status === FEEDBACK.PARTIAL) partialCount++;
   }
