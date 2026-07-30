@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>无畏契约选手猜一猜</title>
+    <title>无畏契约选手猜一猜 - Valorant Pro Player Guessing Game</title>
+    <meta name="description" content="无畏契约职业选手猜一猜 - 根据8维度反馈猜中Valorant选手！157名VCT选手、暗色主题、即开即玩。支持键盘快捷键、战绩统计、结果分享。">
+    <meta name="keywords" content="Valorant,无畏契约,VCT,猜选手,guessing game,电竞游戏,VLR,FPS">
+
+    <!-- Open Graph (社交分享预览) -->
+    <meta property="og:title" content="无畏契约选手猜一猜 - Valorant Pro Player Guessing Game">
+    <meta property="og:description" content="猜中Valorant职业选手！8维度反馈、157名VCT选手数据、暗色主题。支持分享、战绩统计、即开即玩。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qianmeng123456.github.io/VALORANT-pro-guess/">
+    <meta property="og:image" content="https://qianmeng123456.github.io/VALORANT-pro-guess/screenshots/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="无畏契约选手猜一猜">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="无畏契约选手猜一猜 - Valorant Pro Player Guessing Game">
+    <meta name="twitter:description" content="猜中Valorant职业选手！8维度反馈、157名选手。">
+
+    <link rel="canonical" href="https://qianmeng123456.github.io/VALORANT-pro-guess/">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
     <div class="container">
@@ -35,8 +56,8 @@
                 <datalist id="player-list"></datalist>
                 <button id="guess-btn" disabled>猜测</button>
             </div>
-            <button id="reveal-btn" class="reveal-btn" title="揭晓答案">💡 答案</button>
-            <div class="filter-bar" id="filter-bar">
+            <button id="reveal-btn" class="reveal-btn" title="认输并揭晓答案">🏳️ 认输 / 揭晓答案</button>
+            <div class="filter-bar open" id="filter-bar">
                 <div class="filter-controls">
                     <select id="filter-region" class="filter-select" aria-label="按赛区筛选">
                         <option value="">全部赛区</option>
@@ -50,6 +71,16 @@
                     </select>
                     <button id="filter-toggle" class="filter-toggle-btn" title="切换筛选面板" aria-label="切换筛选">🔍</button>
                 </div>
+            </div>
+            <div class="welcome-banner" id="welcome-banner">
+                <div class="welcome-content">
+                    <strong>🎯 怎么玩？</strong>
+                    输入 VCT 选手 ID → 看 8 维颜色反馈 → 缩小范围 → 猜中目标！
+                    <span class="welcome-colors">
+                        🟩 匹配 · 🟨 部分匹配 · ⬛ 不匹配 · 🔺 更大 · 🔻 更小
+                    </span>
+                </div>
+                <button class="welcome-close" id="welcome-close" aria-label="关闭提示">✕</button>
             </div>
             <div class="input-hints" id="auto-complete"></div>
             <div class="shortcut-hints">
@@ -89,7 +120,7 @@
             <div class="hint-text" id="hint-text">输入选手 ID 并点击猜测，根据颜色提示缩小范围！</div>
             <div class="share-section" id="share-section" style="display:none">
                 <button id="share-btn" onclick="shareResult()">📋 复制结果</button>
-                <button id="new-game-btn" onclick="location.reload()">🔄 新的一局</button>
+                <button id="new-game-btn" onclick="newGame()">🔄 新的一局</button>
             </div>
         </div>
     </div>
@@ -104,7 +135,7 @@
             <div class="modal-result" id="modal-result"></div>
             <div class="modal-actions">
                 <button onclick="shareResult()">📋 分享结果</button>
-                <button onclick="location.reload()">🔄 再来一局</button>
+                <button onclick="newGame()">🔄 再来一局</button>
             </div>
         </div>
     </div>
@@ -273,10 +304,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/data.js"></script>
-    <script src="js/game.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/stats.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/game.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/stats.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+# Python dependencies for data pipeline scripts
+
+# To install:
+#   pip install -r requirements.txt
+
+# Data build pipeline
+build_dataset.py  # stdlib only (no external deps)
+scrape_vlr.py     # needs the vlr-client npm package (see data/scripts/package.json)
+download_agents.py  # uses urllib / requests for Valorant API
+
+# For local development server
+server.py  # stdlib only (http.server)

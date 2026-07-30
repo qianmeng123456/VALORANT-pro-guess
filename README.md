@@ -6,16 +6,19 @@ Valorant Pro Player Guessing Game
 
 受 [guessassin.xyz](https://www.guessassin.xyz/) 和 LoLdle 启发制作的"猜选手"网页游戏。根据多维度反馈提示缩小范围，猜中目标选手！
 
+> ⭐ 如果觉得好玩，请给个 Star 支持一下！你的 Star 是我持续更新选手数据的动力！
+
 [![在线游玩](https://img.shields.io/badge/🎮-在线游玩-red?style=for-the-badge)](https://qianmeng123456.github.io/VALORANT-pro-guess/)
 ![HTML](https://img.shields.io/badge/HTML-纯前端-orange)
 ![CSS](https://img.shields.io/badge/CSS-暗色主题-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
 ![数据](https://img.shields.io/badge/选手-157名-green)
+![许可证](https://img.shields.io/badge/license-MIT-blue)
 
 ## 游戏玩法
 
 1. 输入无畏契约职业选手 ID（如 `ZmjjKK`、`TenZ`、`f0rsakeN`）
-2. 系统对比 6 个字段并给出颜色反馈：
+2. 系统对比 **8 个字段**并给出颜色反馈：
    - 🟩 **绿色** = 完全匹配
    - 🟨 **黄色** = 部分匹配（代表英雄）
    - ⬛ **黑色** = 不匹配
@@ -23,16 +26,18 @@ Valorant Pro Player Guessing Game
    - 🔻 **橙色** = 目标更小/更少
 3. 根据提示不断缩小范围，直到猜中！
 
-### 六大赛博字段
+### 八大比对字段
 
 | 字段 | 说明 | 反馈 |
 |------|------|------|
 | ID | 选手游戏名 | 🟩/⬛ |
 | 年龄 | 选手年龄 | 🟩/🔺/🔻 |
-| 赛区 | Americas / EMEA / Pacific / China | 🟩/⬛ |
-| 战队 | 当前所属战队 | 🟩/⬛ |
+| 赛区 | Americas / EMEA / Pacific / China | 🟩/🟨/⬛ |
+| 战队 | 当前所属战队 + 历史战队 | 🟩/🟨/⬛ |
 | 冠军数 | Masters + Champions 冠军总数 | 🟩/🔺/🔻 |
 | 代表英雄 | 使用场次最多的 3 个英雄 | 🟩/🟨/⬛ |
+| 国籍 | 选手所属国家 | 🟩/⬛ |
+| 出道年 | 首次参加 VCT 职业赛事的年份 | 🟩/🔺/🔻 |
 
 ## 数据说明
 
@@ -104,7 +109,8 @@ python data/scripts/scrape_vlr.py
 ## 特性
 
 - 🎲 **随机挑战**：每次刷新都是新的一局
-- 🔍 **多维度反馈**：ID / 年龄 / 赛区 / 战队 / 冠军数 / 代表英雄
+- 🔍 **八维度反馈**：ID / 年龄 / 赛区 / 战队 / 冠军数 / 代表英雄 / 国籍 / 出道年
+- 🌍 **全面数据**：157 名选手覆盖四大 VCT 赛区（中国、美洲、EMEA、太平洋）
 - 📊 **个人战绩**：自动统计胜场、胜率、连胜纪录
 - 🔎 **智能筛选**：按赛区和战队过滤选手，快速定位
 - ⌨️ **键盘快捷键**：`/` 聚焦、`↑↓` 选择、`Enter` 提交
@@ -114,23 +120,37 @@ python data/scripts/scrape_vlr.py
 
 ## 截图
 
-| 游戏界面 | 猜中弹窗 | 战绩统计 |
-|---------|---------|---------|
-| ![游戏界面](https://via.placeholder.com/300x400/1a1a2e/e0e0e0?text=游戏界面) | ![猜中弹窗](https://via.placeholder.com/300x400/1a1a2e/e0e0e0?text=🎉+恭喜猜中) | ![战绩统计](https://via.placeholder.com/300x400/1a1a2e/e0e0e0?text=📊+个人战绩) |
-
-> 💡 截图待补充——欢迎贡献截图替换占位图！
+| 游戏界面 | 猜中弹窗 | 设置与战绩 |
+|---------|---------|-----------|
+| ![游戏界面](screenshots/gameplay.png) | ![猜中弹窗](screenshots/win-modal.png) | ![设置与战绩](screenshots/settings.png) |
 
 ## 开发计划
 
 - [x] 选手数据库（157 名主流选手）
-- [x] 核心游戏逻辑（6 字段比较反馈）
+- [x] 核心游戏逻辑（8 字段比较反馈）
 - [x] 暗色主题 UI（自适应布局）
 - [x] 英雄头像（27 个英雄齐全）
 - [x] 自动补全输入 + 筛选过滤
 - [x] 战绩统计（胜率、连胜、场次）
 - [x] 键盘快捷键与用户体验优化
 - [x] 结果分享（Wordle 风格 emoji 格子）
+- [x] 国籍与出道年字段
 - [ ] 更多选手数据
+- [ ] 更多游戏模式
+
+---
+
+## 🙏 支持项目
+
+如果喜欢这个游戏，欢迎：
+
+- ⭐ **[Star 这个仓库](https://github.com/qianmeng123456/VALORANT-pro-guess)** — 你的 Star 是持续更新的动力！
+- 🐛 **提交 Issue** — 报告数据错误或功能建议
+- 📢 **分享**给你的打瓦伙伴 — 看看谁更了解 VCT 选手
+- 🎥 **录视频**展示你的猜题技巧
+- 🤝 **贡献代码** — 查看 [CONTRIBUTING.md](CONTRIBUTING.md) 了解如何参与
+
+[![Star](https://img.shields.io/github/stars/qianmeng123456/VALORANT-pro-guess?style=social)](https://github.com/qianmeng123456/VALORANT-pro-guess)
 
 ---
 

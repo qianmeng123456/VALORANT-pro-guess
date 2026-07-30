@@ -12,11 +12,15 @@ function setupUI() {
   const btn = document.getElementById('guess-btn');
   const autoComplete = document.getElementById('auto-complete');
 
-  // Input handler
+  // Debounce timer for search input
+  let debounceTimer = null;
+
+  // Input handler with debounce
   input.addEventListener('input', function(e) {
     UI.currentInput = this.value;
     UI.selectedSuggestion = -1;
-    updateAutoComplete(this.value);
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => updateAutoComplete(this.value), 150);
     btn.disabled = this.value.trim().length === 0 || !DATA.loaded;
   });
 
@@ -62,6 +66,20 @@ function setupUI() {
     // Populate teams when first opened
     populateTeamFilter('');
   });
+
+  // Welcome banner
+  const welcomeBanner = document.getElementById('welcome-banner');
+  if (welcomeBanner) {
+    try {
+      if (localStorage.getItem('welcomeDismissed')) {
+        welcomeBanner.style.display = 'none';
+      }
+    } catch (e) {}
+    document.getElementById('welcome-close').addEventListener('click', function() {
+      welcomeBanner.style.display = 'none';
+      try { localStorage.setItem('welcomeDismissed', '1'); } catch (e) {}
+    });
+  }
 
   // Region filter change → update team dropdown
   document.getElementById('filter-region').addEventListener('change', function() {
@@ -167,8 +185,9 @@ function submitGuess() {
     recordLoss();
   } else {
     const remaining = getMaxGuesses() - GAME.guesses.length;
-    const hint = getRandomHint(result);
-    setHint(`${hint}（剩余 ${remaining} 次）`);
+    const hint = getSmartHint(result);
+    const pct = getExcludedPercent();
+    setHint(`${hint}（剩余 ${remaining} 次${pct > 0 ? ` · 已排除约 ${pct}% 选手` : ''}）`);
   }
 
   input.value = '';
@@ -191,13 +210,13 @@ function renderGuessRow(result) {
   const idBadge = feedbackBadge(f.id.status, guess.name);
   row.innerHTML = `
     <div class="col col-id">${idBadge}</div>
-    <div class="col col-age">${renderAgeField(f.age)}</div>
-    <div class="col col-region">${renderRegionField(f.region)}</div>
-    <div class="col col-team">${renderTeamField(f.team)}</div>
-    <div class="col col-champ">${renderChampField(f.champ)}</div>
+    <div class="col col-age">${renderHintField(f.age)}</div>
+    <div class="col col-region">${renderMultiField(f.region)}</div>
+    <div class="col col-team">${renderMultiField(f.team)}</div>
+    <div class="col col-champ">${renderHintField(f.champ)}</div>
     <div class="col col-hero">${renderAgentField(f.agent, guess)}</div>
     <div class="col col-nationality">${feedbackBadge(f.nationality.status, f.nationality.value)}</div>
-    <div class="col col-debut">${renderDebutField(f.debut)}</div>
+    <div class="col col-debut">${renderHintField(f.debut)}</div>
   `;
 
   container.insertBefore(row, container.firstChild);
@@ -208,7 +227,8 @@ function feedbackBadge(status, text) {
   return `<span class="${cls}">${text}</span>`;
 }
 
-function renderAgeField(field) {
+// Unified hint field renderer (age, championships, debut year)
+function renderHintField(field) {
   if (field.status === 'hint-up') {
     return `<span class="badge badge-hint-up">${field.value} 🔺</span>`;
   } else if (field.status === 'hint-down') {
@@ -217,16 +237,8 @@ function renderAgeField(field) {
   return feedbackBadge(field.status, field.value);
 }
 
-function renderChampField(field) {
-  if (field.status === 'hint-up') {
-    return `<span class="badge badge-hint-up">${field.value} 🔺</span>`;
-  } else if (field.status === 'hint-down') {
-    return `<span class="badge badge-hint-down">${field.value} 🔻</span>`;
-  }
-  return feedbackBadge(field.status, field.value);
-}
-
-function renderRegionField(field) {
+// Unified multi-value field renderer (region, team)
+function renderMultiField(field) {
   if (!field.items || field.items.length === 0) {
     return feedbackBadge(field.status, '未知');
   }
@@ -239,30 +251,6 @@ function renderRegionField(field) {
   html += '</div>';
   html += '</div>';
   return html;
-}
-
-function renderTeamField(field) {
-  if (!field.items || field.items.length === 0) {
-    return feedbackBadge(field.status, '未知');
-  }
-  let html = '<div class="multi-field">';
-  html += '<div class="multi-list">';
-  field.items.forEach(item => {
-    const cls = item.matched ? 'badge badge-correct' : 'badge badge-wrong';
-    html += `<span class="${cls}">${item.name_cn || item.name}</span>`;
-  });
-  html += '</div>';
-  html += '</div>';
-  return html;
-}
-
-function renderDebutField(field) {
-  if (field.status === 'hint-up') {
-    return `<span class="badge badge-hint-up">${field.value} 🔺</span>`;
-  } else if (field.status === 'hint-down') {
-    return `<span class="badge badge-hint-down">${field.value} 🔻</span>`;
-  }
-  return feedbackBadge(field.status, field.value);
 }
 
 function renderAgentField(field, guess) {
@@ -321,25 +309,123 @@ function disableInput(disabled) {
   input.placeholder = disabled ? '游戏已结束，刷新页面开始新一局' : '输入选手 ID... 如 ZmjjKK、f0rsakeN、TenZ';
 }
 
+function resetUI() {
+  document.getElementById('guess-history').innerHTML = '';
+  document.getElementById('win-modal').style.display = 'none';
+  document.getElementById('share-section').style.display = 'none';
+  document.getElementById('guess-input').value = '';
+  document.getElementById('guess-input').disabled = false;
+  document.getElementById('guess-input').placeholder = '输入选手 ID... 如 ZmjjKK、f0rsakeN、TenZ';
+  document.getElementById('guess-btn').disabled = true;
+  updateGuessCount();
+  setHint(`🎯 已经选定目标选手，开始猜测吧！共 ${DATA.players.length} 名选手可选`);
+}
+
+function newGame() {
+  resetGame();
+  resetUI();
+  document.getElementById('guess-input').focus();
+  // Remove confetti canvas if present
+  document.querySelectorAll('.confetti-canvas').forEach(c => c.remove());
+}
+
 function setHint(text) {
   document.getElementById('hint-text').textContent = text;
 }
 
-function getRandomHint(result) {
+function getSmartHint(result) {
   const f = result.fields;
+  const target = GAME.targetPlayer;
+  const givenHints = GAME.hintsGiven || [];
+  GAME.hintsGiven = givenHints;
+
   const hints = [];
 
-  if (f.age.status === 'hint-up') hints.push('目标选手年龄更大');
-  if (f.age.status === 'hint-down') hints.push('目标选手年龄更小');
-  if (f.champ.status === 'hint-up') hints.push('目标选手冠军数更多');
-  if (f.champ.status === 'hint-down') hints.push('目标选手冠军数更少');
-  if (f.agent.status === 'partial') hints.push('代表英雄部分匹配');
-  if (f.region.status === 'wrong') hints.push('赛区不对');
-  if (f.team.status === 'wrong' && result.guess.team) hints.push('战队不对');
+  // Region (high priority — eliminates many players)
+  if (f.region.status === 'wrong' && !givenHints.includes('region')) {
+    hints.push({ text: `赛区不对，目标来自 ${REGION_CN[target.region] || target.region} 赛区`, key: 'region', priority: 10 });
+  }
 
-  if (hints.length > 0)
-    return '💡 ' + hints.join('，');
-  return '💡 没有一个字段匹配，试试完全不同的选手！';
+  // Team
+  if (f.team.status === 'wrong' && !givenHints.includes('team') && result.guess.team) {
+    const teamNames = [target.team_cn || target.team];
+    if (target.previous_teams_cn) teamNames.push(...target.previous_teams_cn);
+    hints.push({ text: `战队不对，目标曾效力 ${teamNames.join('、')}`, key: 'team', priority: 8 });
+  }
+
+  // Nationality
+  if (f.nationality.status === 'wrong' && !givenHints.includes('nationality')) {
+    const nat = target.nationality_cn || target.nationality;
+    hints.push({ text: `国籍不对，目标来自 ${nat}`, key: 'nationality', priority: 7 });
+  }
+
+  // Age direction
+  if (f.age.status === 'hint-up' && !givenHints.includes('age')) {
+    hints.push({ text: `目标选手年龄更大（${target.age}岁左右）`, key: 'age', priority: 6 });
+  } else if (f.age.status === 'hint-down' && !givenHints.includes('age')) {
+    hints.push({ text: `目标选手年龄更小（${target.age}岁左右）`, key: 'age', priority: 6 });
+  }
+
+  // Championship direction
+  if (f.champ.status === 'hint-up' && !givenHints.includes('champ')) {
+    hints.push({ text: `目标冠军数更多（${target.championships}冠）`, key: 'champ', priority: 5 });
+  } else if (f.champ.status === 'hint-down' && !givenHints.includes('champ')) {
+    hints.push({ text: `目标冠军数更少（${target.championships}冠）`, key: 'champ', priority: 5 });
+  }
+
+  // Debut year direction
+  if (f.debut.status === 'hint-up' && !givenHints.includes('debut')) {
+    hints.push({ text: `目标出道更晚（${target.debut_year}年出道）`, key: 'debut', priority: 4 });
+  } else if (f.debut.status === 'hint-down' && !givenHints.includes('debut')) {
+    hints.push({ text: `目标出道更早（${target.debut_year}年出道）`, key: 'debut', priority: 4 });
+  }
+
+  // Agent partial match (lowest priority)
+  if (f.agent.status === 'partial' && !givenHints.includes('agent')) {
+    hints.push({ text: `代表英雄部分匹配（有 ${f.agent.matchCount}/3 个重叠）`, key: 'agent', priority: 3 });
+  }
+
+  // Sort by priority descending
+  hints.sort((a, b) => b.priority - a.priority);
+
+  if (hints.length > 0) {
+    givenHints.push(hints[0].key);
+    return '💡 ' + hints[0].text;
+  }
+
+  // Fallback hints from field-level comparisons
+  targetFallbacks: {
+    if (f.age.status === 'hint-up') { return '💡 目标选手年龄更大'; break targetFallbacks; }
+    if (f.age.status === 'hint-down') { return '💡 目标选手年龄更小'; break targetFallbacks; }
+    if (f.champ.status === 'hint-up') { return '💡 目标冠军数更多'; break targetFallbacks; }
+    if (f.champ.status === 'hint-down') { return '💡 目标冠军数更少'; break targetFallbacks; }
+    if (f.debut.status === 'hint-up') { return '💡 目标出道更晚'; break targetFallbacks; }
+    if (f.debut.status === 'hint-down') { return '💡 目标出道更早'; break targetFallbacks; }
+    if (f.agent.status === 'partial') { return '💡 代表英雄部分匹配，注意共同英雄'; break targetFallbacks; }
+  }
+
+  return '💡 换个方向试试！';
+}
+
+// Estimate how many players are excluded based on current feedback
+function getExcludedPercent() {
+  const total = DATA.players.length;
+  if (total === 0 || GAME.guesses.length === 0) return 0;
+  const lastResult = GAME.guesses[GAME.guesses.length - 1];
+  if (!lastResult) return 0;
+
+  // Simple heuristic: count fields that are WRONG (eliminates all players sharing that value)
+  // and HINT_UP/HINT_DOWN (eliminates players on the wrong side)
+  const target = GAME.targetPlayer;
+  let remaining = total;
+
+  // Age elimination
+  const f = lastResult.fields;
+  if (f.age.status === 'wrong' && target.age !== '' && lastResult.guess.age !== '') {
+    remaining = Math.max(1, remaining - Math.floor(remaining * 0.15));
+  }
+
+  return Math.round((1 - remaining / total) * 100);
 }
 
 /* ===== Reveal / Give Up ===== */
@@ -365,11 +451,80 @@ function closeWinModalOutside(event) {
   }
 }
 
+/* ===== Confetti Celebration ===== */
+
+function spawnConfetti() {
+  // Remove existing confetti canvas
+  document.querySelectorAll('.confetti-canvas').forEach(c => c.remove());
+
+  const canvas = document.createElement('canvas');
+  canvas.className = 'confetti-canvas';
+  canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;';
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width = canvas.offsetWidth;
+  const H = canvas.height = canvas.offsetHeight;
+  const colors = ['#ff4655', '#3fb58a', '#f5b748', '#4a9eff', '#ff6b4a', '#ece8e1', '#a0a8b4'];
+  const pieces = [];
+
+  for (let i = 0; i < 120; i++) {
+    pieces.push({
+      x: Math.random() * W,
+      y: Math.random() * H - H,
+      w: Math.random() * 8 + 4,
+      h: Math.random() * 6 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rotation: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 8,
+      speedX: (Math.random() - 0.5) * 3,
+      speedY: Math.random() * 4 + 2,
+      opacity: 1,
+      swing: Math.random() * 2 - 1,
+    });
+  }
+
+  let frame = 0;
+  const MAX_FRAMES = 180;
+
+  function animate() {
+    frame++;
+    if (frame > MAX_FRAMES) {
+      canvas.style.opacity = Math.max(0, parseFloat(canvas.style.opacity || 1) - 0.05);
+      if (parseFloat(canvas.style.opacity || 1) <= 0) {
+        canvas.remove();
+        return;
+      }
+    }
+    ctx.clearRect(0, 0, W, H);
+    for (const p of pieces) {
+      p.x += p.speedX + Math.sin(frame * 0.05 + p.swing) * 0.5;
+      p.y += p.speedY;
+      p.rotation += p.rotSpeed;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rotation * Math.PI) / 180);
+      ctx.globalAlpha = p.opacity;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
 function showWinModal(revealed) {
   const modal = document.getElementById('win-modal');
   const target = GAME.targetPlayer;
 
+  // Set animation class
+  modal.className = 'modal-overlay' + (revealed ? ' modal-lose' : ' modal-win');
+
   document.getElementById('modal-title').textContent = revealed ? '😔 游戏结束' : '🎉 恭喜猜中！';
+
+  // Trigger confetti on win
+  if (!revealed) spawnConfetti();
   document.getElementById('modal-player').textContent = target.name;
   document.getElementById('modal-stats').innerHTML =
     `${target.team_cn || target.team} · ${REGION_CN[target.region] || target.region} · ${target.age}岁 · ${target.championships}冠`;
