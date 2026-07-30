@@ -7,6 +7,7 @@ const GAME = {
   targetPlayer: null,
   guesses: [],
   isOver: false,
+  hintsGiven: [],
 };
 
 // Feedback types
@@ -29,12 +30,23 @@ const REGION_CN = {
 function initGame() {
   GAME.guesses = [];
   GAME.isOver = false;
+  GAME.hintsGiven = [];
 
   // Random challenge: pick a random player for each session
   const randomIdx = Math.floor(Math.random() * DATA.players.length);
   GAME.targetPlayer = DATA.players[randomIdx];
 
   return GAME.targetPlayer;
+}
+
+// Soft reset — reuse loaded data for a new game
+function resetGame() {
+  GAME.targetPlayer = null;
+  GAME.guesses = [];
+  GAME.isOver = false;
+  GAME.hintsGiven = [];
+  const randomIdx = Math.floor(Math.random() * DATA.players.length);
+  GAME.targetPlayer = DATA.players[randomIdx];
 }
 
 /**

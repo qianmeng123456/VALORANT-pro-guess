@@ -12,30 +12,37 @@ const DATA = {
   loadError: null,
 };
 
-async function loadPlayerData() {
-  try {
-    const response = await fetch('data/players.json');
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    DATA.players = await response.json();
+async function loadPlayerData(retries = 3) {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const response = await fetch('data/players.json');
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      DATA.players = await response.json();
 
-    // Build lookup maps and name list
-    DATA.playerMap = {};
-    DATA.playerMapLower = {};
-    DATA.players.forEach(p => {
-      DATA.playerMap[p.name] = p;
-      DATA.playerMapLower[p.name.toLowerCase()] = p;
-    });
-    DATA.allNames = DATA.players.map(p => p.name).sort();
-    DATA.loaded = true;
+      // Build lookup maps and name list
+      DATA.playerMap = {};
+      DATA.playerMapLower = {};
+      DATA.players.forEach(p => {
+        DATA.playerMap[p.name] = p;
+        DATA.playerMapLower[p.name.toLowerCase()] = p;
+      });
+      DATA.allNames = DATA.players.map(p => p.name).sort();
+      DATA.loaded = true;
 
-    // Update UI
-    document.getElementById('player-count').textContent = `${DATA.players.length} 名选手`;
-    return true;
-  } catch (err) {
-    DATA.loadError = err.message;
-    document.getElementById('player-count').textContent = '加载失败';
-    document.getElementById('hint-text').textContent = `⚠️ 数据加载失败: ${err.message}`;
-    return false;
+      // Update UI
+      document.getElementById('player-count').textContent = `${DATA.players.length} 名选手`;
+      return true;
+    } catch (err) {
+      DATA.loadError = err.message;
+      if (attempt < retries - 1) {
+        // Exponential backoff: 1s, 2s, ...
+        await new Promise(r => setTimeout(r, 1000 * Math.pow(2, attempt)));
+        continue;
+      }
+      document.getElementById('player-count').textContent = '加载失败';
+      document.getElementById('hint-text').textContent = `⚠️ 数据加载失败: ${err.message}`;
+      return false;
+    }
   }
 }
 

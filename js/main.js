@@ -54,3 +54,4 @@ window.openFeedback = openFeedback;
 window.closeFeedback = closeFeedback;
 window.closeFeedbackOutside = closeFeedbackOutside;
 window.submitFeedback = submitFeedback;
+window.newGame = newGame;
