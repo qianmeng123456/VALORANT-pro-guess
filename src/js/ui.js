@@ -317,6 +317,8 @@ function resetUI() {
   document.getElementById('guess-input').disabled = false;
   document.getElementById('guess-input').placeholder = '输入选手 ID... 如 ZmjjKK、f0rsakeN、TenZ';
   document.getElementById('guess-btn').disabled = true;
+  const revealBtn = document.getElementById('reveal-btn');
+  if (revealBtn) revealBtn.disabled = false;
   updateGuessCount();
   setHint(`🎯 已经选定目标选手，开始猜测吧！共 ${DATA.players.length} 名选手可选`);
 }
@@ -343,46 +345,43 @@ function getSmartHint(result) {
 
   // Region (high priority — eliminates many players)
   if (f.region.status === 'wrong' && !givenHints.includes('region')) {
-    hints.push({ text: `赛区不对，目标来自 ${REGION_CN[target.region] || target.region} 赛区`, key: 'region', priority: 10 });
+    hints.push({ text: `赛区不对，换个赛区试试`, key: 'region', priority: 10 });
   }
 
   // Team
   if (f.team.status === 'wrong' && !givenHints.includes('team') && result.guess.team) {
-    const teamNames = [target.team_cn || target.team];
-    if (target.previous_teams_cn) teamNames.push(...target.previous_teams_cn);
-    hints.push({ text: `战队不对，目标曾效力 ${teamNames.join('、')}`, key: 'team', priority: 8 });
+    hints.push({ text: `战队不对，目标不在你猜测的战队中`, key: 'team', priority: 8 });
   }
 
   // Nationality
   if (f.nationality.status === 'wrong' && !givenHints.includes('nationality')) {
-    const nat = target.nationality_cn || target.nationality;
-    hints.push({ text: `国籍不对，目标来自 ${nat}`, key: 'nationality', priority: 7 });
+    hints.push({ text: `国籍不对，换个国籍方向试试`, key: 'nationality', priority: 7 });
   }
 
   // Age direction
   if (f.age.status === 'hint-up' && !givenHints.includes('age')) {
-    hints.push({ text: `目标选手年龄更大（${target.age}岁左右）`, key: 'age', priority: 6 });
+    hints.push({ text: `目标选手年龄更大`, key: 'age', priority: 6 });
   } else if (f.age.status === 'hint-down' && !givenHints.includes('age')) {
-    hints.push({ text: `目标选手年龄更小（${target.age}岁左右）`, key: 'age', priority: 6 });
+    hints.push({ text: `目标选手年龄更小`, key: 'age', priority: 6 });
   }
 
   // Championship direction
   if (f.champ.status === 'hint-up' && !givenHints.includes('champ')) {
-    hints.push({ text: `目标冠军数更多（${target.championships}冠）`, key: 'champ', priority: 5 });
+    hints.push({ text: `目标冠军数更多`, key: 'champ', priority: 5 });
   } else if (f.champ.status === 'hint-down' && !givenHints.includes('champ')) {
-    hints.push({ text: `目标冠军数更少（${target.championships}冠）`, key: 'champ', priority: 5 });
+    hints.push({ text: `目标冠军数更少`, key: 'champ', priority: 5 });
   }
 
   // Debut year direction
   if (f.debut.status === 'hint-up' && !givenHints.includes('debut')) {
-    hints.push({ text: `目标出道更晚（${target.debut_year}年出道）`, key: 'debut', priority: 4 });
+    hints.push({ text: `目标出道更晚（年份更大）`, key: 'debut', priority: 4 });
   } else if (f.debut.status === 'hint-down' && !givenHints.includes('debut')) {
-    hints.push({ text: `目标出道更早（${target.debut_year}年出道）`, key: 'debut', priority: 4 });
+    hints.push({ text: `目标出道更早（年份更小）`, key: 'debut', priority: 4 });
   }
 
   // Agent partial match (lowest priority)
   if (f.agent.status === 'partial' && !givenHints.includes('agent')) {
-    hints.push({ text: `代表英雄部分匹配（有 ${f.agent.matchCount}/3 个重叠）`, key: 'agent', priority: 3 });
+    hints.push({ text: `代表英雄部分匹配，注意共同英雄`, key: 'agent', priority: 3 });
   }
 
   // Sort by priority descending
@@ -393,14 +392,14 @@ function getSmartHint(result) {
     return '💡 ' + hints[0].text;
   }
 
-  // Fallback hints from field-level comparisons
+  // Fallback hints from field-level comparisons (no concrete values revealed)
   targetFallbacks: {
     if (f.age.status === 'hint-up') { return '💡 目标选手年龄更大'; break targetFallbacks; }
     if (f.age.status === 'hint-down') { return '💡 目标选手年龄更小'; break targetFallbacks; }
     if (f.champ.status === 'hint-up') { return '💡 目标冠军数更多'; break targetFallbacks; }
     if (f.champ.status === 'hint-down') { return '💡 目标冠军数更少'; break targetFallbacks; }
-    if (f.debut.status === 'hint-up') { return '💡 目标出道更晚'; break targetFallbacks; }
-    if (f.debut.status === 'hint-down') { return '💡 目标出道更早'; break targetFallbacks; }
+    if (f.debut.status === 'hint-up') { return '💡 目标出道更晚（年份更大）'; break targetFallbacks; }
+    if (f.debut.status === 'hint-down') { return '💡 目标出道更早（年份更小）'; break targetFallbacks; }
     if (f.agent.status === 'partial') { return '💡 代表英雄部分匹配，注意共同英雄'; break targetFallbacks; }
   }
 
